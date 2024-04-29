@@ -21,3 +21,20 @@ const n4 = n1 + undefined // undefined : 정의 되지 않았다
 
 console.log(n3) // '123abc'
 console.log(n4) // NaN
+
+// boolean
+// 불린(boolean)은 'true'와 'false' 두 가지 값인 참/거짓의 논리 데이터입니다.
+const a = true
+const b = false
+
+console.log(a, b)
+
+if (a) {
+  console.log('참(Truthy)입니다!')
+}
+
+// 데이터를 서로 비교해, 참과 거짓을 판단합니다.
+const n1_2 = 1
+const n2_2 = 9
+
+console.log(n1 > n2)
