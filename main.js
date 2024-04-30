@@ -306,8 +306,8 @@ console.log(b_3)
 
 // -- 기호가 뒤에 있는 경우,
 let c_2 = 3
-console.log(c--)
-console.log(c)
+console.log(c_2--)
+console.log(c_2)
 
 // -- 기호가 앞에 있는 경우,
 let d = 3
@@ -376,7 +376,7 @@ console.log(a_5 <= b_5) // true
 // ** 논리 연산자 **
 // 호이스팅(Hoisting)
 hello()   // OK!
-world()   // Error..
+// world()   // Error..
 
 // 함수 선언문(Declaration)
 function hello() {
@@ -407,3 +407,31 @@ const getMovies = function() {
 
 const fruits_3 = getFruits()
 const movies_3 = getMovies()
+
+// ** 삼항 연산자 **
+// 조건 ? (조건이 참일 때 실행) : (조건이 거짓일 때 실행)
+
+const fruits_4 = ['Apple', 'Banana', 'Cherry']
+
+// if 조건문
+if (fruits_4.length > 0) {
+  console.log('과일이 있습니다.')
+} else {
+  console.log('과일이 없습니다.')
+}
+
+// 삼항 연산자
+const message = fruits_4.length > 0 ? '과일이 있습니다.' : '과일이 없습니다.'
+console.log(message)
+
+function includesText(el) {
+  // if (el.textContent) {
+  //   return '글자 있음!'
+  // } else {
+  //   return '글자 없음!'
+  // }
+  return el.textContent ? '글자 있음!' : '글자 없음!'
+}
+
+const h1El_4 = document.querySelector('h1')
+console.log(includesText(h1El_4))
