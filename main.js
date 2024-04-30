@@ -47,3 +47,15 @@ let age = null;
 const h1El = document.querySelector('h1');
 console.log(h1El)
 console.log(h1El.textContent)
+
+// undefined
+// 'undefined' 데이터는, '값이 할당되지 않는 상태'를 나타낼 때 사용한다.
+// 변수는 선언했지만, 값을 할당하지 않았다면 해당 변수에 'undefined'가 임시적으로 할당된다
+
+let age_2;
+console.log(age_2)
+
+function fn() {
+  // return 123
+}
+console.log(fn())
