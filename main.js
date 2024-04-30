@@ -372,3 +372,38 @@ console.log(a_5 < b_5) // true
 
 // 작거나 같음
 console.log(a_5 <= b_5) // true
+
+// ** 논리 연산자 **
+// 호이스팅(Hoisting)
+hello()   // OK!
+world()   // Error..
+
+// 함수 선언문(Declaration)
+function hello() {
+  console.log('Hello~')
+}
+// 함수 표현식(Expression)
+const world = function () {
+  console.log('World~')
+}
+
+function getFruits() {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return fruits
+}
+
+const getMovies = function() {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return movies
+}
+
+const fruits_3 = getFruits()
+const movies_3 = getMovies()
