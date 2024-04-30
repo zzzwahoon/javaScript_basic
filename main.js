@@ -193,3 +193,35 @@ console.log(l)
 l = 78
 console.log(l)
 console.log(l)
+
+// 형 변환(Type Conversion)이란,
+// 데이터가 상황에 따라 적절한 데이터 타입(자료형)으로 변환되는 것을 말합니다.
+
+const a_2 = 1
+const b_2 = '1'
+
+// == 동등 연산자
+console.log('동등', a == b)
+// === 일치 연산자
+console.log('일치', a === b)
+
+// 다음 코드는 모두 true를 출력한다
+console.log('===========')
+console.log(123 == '123')
+console.log(1 == true)
+console.log(0 == false)
+console.log(null == undefined)
+console.log('' == false)
+
+// 다음 코드는 모두 false를 출력한다
+console.log('===========')
+console.log(123 === '123')
+console.log(1 === true)
+console.log(0 === false)
+console.log(null === undefined)
+console.log('' === false)
+
+const h1El_3 = document.querySelector('h1')
+if (h1El_3) {
+  console.log(h1El_3.textContent)
+}
