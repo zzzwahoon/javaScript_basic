@@ -522,3 +522,43 @@ buttonEl.addEventListener('click', function () {
     h1El_5.textContent = 'F'
   }
 })
+
+// ** 조건문 - switch **
+console.log('***** 조건문 - switch *****')
+const prod = '노트북'
+switch (prod) {
+  case '노트북' : 
+    console.log((3000000).toLocaleString() + '원')
+    break
+  case '스마트폰':
+    console.log((800000).toLocaleString() + '원')
+    break
+  case '키보드':
+  case '마우스':
+    console.log((120000).toLocaleString() + '원')
+    break
+  default:
+    console.log('-')
+}
+
+const inputEl_2 = document.querySelector('.input_2')
+const buttonEl_2 = document.querySelector('.button_2')
+const h1El_6 = document.querySelector('.h1_2')
+
+buttonEl_2.addEventListener('click', function () {
+  const prod = inputEl_2.value
+  switch (prod) {
+    case '노트북' : 
+      h1El_6.textContent = (3000000).toLocaleString() + '원'
+      break
+    case '스마트폰':
+      h1El_6.textContent = (800000).toLocaleString() + '원'
+      break
+    case '키보드':
+    case '마우스':
+      h1El_6.textContent = (120000).toLocaleString() + '원'
+      break
+    default:
+      h1El_6.textContent = '-'
+  }
+})
