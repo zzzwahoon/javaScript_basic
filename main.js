@@ -1,3 +1,5 @@
+// ***** JS 데이터 *****
+
 // string
 // 문자(string)은 따옴표를 사용합니다.
 const s1 = 'Neo'
@@ -255,3 +257,66 @@ console.log(data.boolean.constructor === Boolean)
 console.log(data.array.constructor === Array)
 console.log(data.object.constructor === Object)
 console.log(data.function.constructor === Function)
+
+// ***** 연산자와 구문 *****
+
+// ** 산술, 할당, 증가 연산자 **
+// 산술 연산자(Arithmetic operator)
+console.log(1 + 2)
+console.log(5 - 7)
+console.log(3 * 4)
+console.log(10 / 2)
+console.log(7 % 5)
+
+// 할당 연산자(Assignment Operator)
+let a_3 = 3
+console.log(a_3)
+
+// a = a + 2
+a_3 += 2
+console.log(a_3)
+
+// a = a - 2
+a_3 -= 2
+console.log(a_3)
+
+// a = a * 2
+a_3 *= 2
+console.log(a_3)
+
+// a = a / 2
+a_3 /= 2
+console.log(a_3)
+
+// a = a % 2
+a_3 %= 2
+console.log(a_3)
+
+// 증감 연산자(Increment & Decrement Operators)는 변수 1씩 더하거나 빼는 연산자입니다.
+
+// ++ 기호가 뒤에 있는경우, 
+let a_4 = 3
+console.log(a_4++)
+console.log(a)
+
+// ++ 기호가 앞에 있는 경우,
+let b_3 = 3
+console.log(++b_3)
+console.log(b_3)
+
+// -- 기호가 뒤에 있는 경우,
+let c_2 = 3
+console.log(c--)
+console.log(c)
+
+// -- 기호가 앞에 있는 경우,
+let d = 3
+console.log(--d)
+console.log(d)
+
+// 증강 연산자보다, 할당 연산자를 사용하는것을 추천한다
+let e = 3
+e += 1
+console.log(e)
+e -= 1
+console.log(e)
