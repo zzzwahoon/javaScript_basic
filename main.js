@@ -225,3 +225,33 @@ const h1El_3 = document.querySelector('h1')
 if (h1El_3) {
   console.log(h1El_3.textContent)
 }
+
+const data = {
+  string: '123',
+  number: 123,
+  boolean: true,
+  null: null,
+  undefined: undefined,
+  array: [1, 2, 3],
+  object: { a: 1, b: 2 },
+  function: function () {}
+}
+
+console.log('typeof 데이터')
+console.log(typeof data.string === 'string')
+console.log(typeof data.number === 'number')
+console.log(typeof data.boolean === 'boolean')
+console.log(typeof data.null === 'object')
+console.log(typeof data.undefined === 'undefined')
+console.log(typeof data.array === 'object')
+console.log(typeof data.function === 'function')
+
+console.log('데이터.constructor')
+console.log(data.string.constructor === String)
+console.log(data.number.constructor === Number)
+console.log(data.boolean.constructor === Boolean)
+// console.log(data.null.constructor) // ERROR!
+// console.log(data.undefined.constructor) // ERROR!
+console.log(data.array.constructor === Array)
+console.log(data.object.constructor === Object)
+console.log(data.function.constructor === Function)
