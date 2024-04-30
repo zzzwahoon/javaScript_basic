@@ -476,3 +476,49 @@ const o3 = Object.assign({}, o1, o2)
 const o4 = { ...o1, ...o2 }
 console.log(o3)
 console.log(o4)
+
+// ** 조건문 - if **
+console.log('***** 조건문 - if *****')
+const age_3 = 20
+if (age >= 18) {
+  console.log('성인')
+}
+
+const number_2 = 7
+if (number_2 % 2 === 0) {
+  console.log('짝수')
+} else {
+  console.log('홀수')
+}
+
+const score = 85
+if (score >= 90) {
+  console.log('A')
+} else if (score >= 80) {
+  console.log('B')
+} else if (score >= 70) {
+  console.log('C')
+} else if (score >= 60) {
+  console.log('D')
+} else {
+  console.log('F')
+}
+
+const inputEl = document.querySelector('input')
+const buttonEl = document.querySelector('button')
+const h1El_5 = document.querySelector('h1')
+
+buttonEl.addEventListener('click', function () {
+  const score = Number(inputEl.value)
+  if (score >= 90) {
+    h1El_5.textContent = 'A'
+  } else if (score >= 80) {
+    h1El_5.textContent = 'B'
+  } else if (score >= 70) {
+    h1El_5.textContent = 'C'
+  } else if (score >= 60) {
+    h1El_5.textContent = 'D'
+  } else {
+    h1El_5.textContent = 'F'
+  }
+})
