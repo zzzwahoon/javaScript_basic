@@ -1,6 +1,8 @@
 // ***** JS 데이터 *****
 
+// ** 원시형 **
 // string
+console.log('원시형 - string')
 // 문자(string)은 따옴표를 사용합니다.
 const s1 = 'Neo'
 const s2 = '123'
@@ -11,6 +13,7 @@ const s3 = `My name is ${s1}, I'm ${s2}.`
 console.log(s3)
 
 // number
+console.log('원시형 - number')
 // 숫자(number)은 정수 및 부동소수점 숫자(floating point number)를 나타냅니다.
 const n1 = 123
 const n2 = 12.345
@@ -25,6 +28,7 @@ console.log(n3) // '123abc'
 console.log(n4) // NaN
 
 // boolean
+console.log('원시형 - boolean')
 // 불린(boolean)은 'true'와 'false' 두 가지 값인 참/거짓의 논리 데이터입니다.
 const a = true
 const b = false
@@ -42,6 +46,7 @@ const n2_2 = 9
 console.log(n1 > n2)
 
 // null
+console.log('원시형 - null')
 // 'null' 데이터는,
 // 존재하지 않는(nothing), 비어 있는(empty), 알 수 없는(unknown) 값을 명시적으로 나타낸다.
 let age = null;
@@ -51,6 +56,7 @@ console.log(h1El)
 console.log(h1El.textContent)
 
 // undefined
+console.log('원시형 - undefined')
 // 'undefined' 데이터는, '값이 할당되지 않는 상태'를 나타낼 때 사용한다.
 // 변수는 선언했지만, 값을 할당하지 않았다면 해당 변수에 'undefined'가 임시적으로 할당된다
 
@@ -62,6 +68,8 @@ function fn() {
 }
 console.log(fn())
 
+// ** 참조형 **
+console.log('참조형 - object')
 // 객체(Object) 데이터는 순서가 없는 Key(키)와 Value(값)의 쌍으로 이루어진 데이터 집합입니다.
 // 객체에 포함된 각 데이터를 속성(Property)라고 부르고,
 // 만약 그 데이터가 함수인 경우에는, 메소드(Method)라고 부릅니다.
@@ -93,6 +101,7 @@ console.log(user['isValid'])
 console.log(user['emails'])
 console.log(user['hello']())
 
+console.log('참조형 - functions')
 // 함수(Function)란, 어떤 작업을 수행하기 위해 필요한 여러 코드의 집합으로,
 // 코드를 추상화하고 재사용성을 확보합니다.
 // 이 함수를 자바스크립트에서는 하나의 데이터 종류로 취급합니다.
@@ -119,6 +128,7 @@ console.log(sub(1, 3))
 console.log(sub(4, 12))
 console.log(sub(5, 7))
 
+console.log('참조형 - array')
 // 배열(Array) 데이터는 순서가 있는 여러 데이터의 집합입니다.
 // 배열에 포함된 각 데이터는 아이템(Item) 혹은 요소(Element)라고 부릅니다.
 const fruits = ['Apple', 'Banana', 'Cherry']
@@ -144,6 +154,8 @@ for (let i = 0; i < numbers.length; i += 1) {
   console.log(numbers[i])
 }
 
+// ** 참과 거짓 **
+console.log('참과 거짓 (truthy & falsy)')
 // '참'으로 평가되는 값(Truthy)
 if (true) { console.log('참!') }
 if ({}) { console.log('참!') }
@@ -179,6 +191,7 @@ if (h1El_2) {
   console.log(h1El_2.textContent)
 }
 
+console.log('변수(const, let)')
 // 변수(Variable)란, 데이터(값)의 이름을 지정한 것입니다.
 // 이름이 있으면, 그 이름으로 언제든지 데이터를 재사용할 수 있습니다.
 
@@ -196,6 +209,7 @@ l = 78
 console.log(l)
 console.log(l)
 
+console.log('형변환(type conversion)')
 // 형 변환(Type Conversion)이란,
 // 데이터가 상황에 따라 적절한 데이터 타입(자료형)으로 변환되는 것을 말합니다.
 
@@ -228,6 +242,8 @@ if (h1El_3) {
   console.log(h1El_3.textContent)
 }
 
+// 데이터 타입 확인
+console.log('데이터 타입 확인')
 const data = {
   string: '123',
   number: 123,
@@ -259,8 +275,8 @@ console.log(data.object.constructor === Object)
 console.log(data.function.constructor === Function)
 
 // ***** 연산자와 구문 *****
-
-// ** 산술, 할당, 증가 연산자 **
+console.log('산술, 할당, 증감 연산자')
+// ** 산술, 할당, 증감 연산자 **
 // 산술 연산자(Arithmetic operator)
 console.log(1 + 2)
 console.log(5 - 7)
@@ -322,7 +338,7 @@ e -= 1
 console.log(e)
 
 // ** 부정, 비교 연산자 **
-
+console.log('부정, 비교 연산자')
 // 부정 연산자(Negation Operator)는 참과 거짓의 반댓값을 불린 데이터로 변환합니다.
 
 console.log(!true) // true
@@ -374,6 +390,7 @@ console.log(a_5 < b_5) // true
 console.log(a_5 <= b_5) // true
 
 // ** 논리 연산자 **
+console.log('논리 연산자')
 // 호이스팅(Hoisting)
 hello()   // OK!
 // world()   // Error..
@@ -409,6 +426,7 @@ const fruits_3 = getFruits()
 const movies_3 = getMovies()
 
 // ** 삼항 연산자 **
+console.log('삼항 연산자')
 // 조건 ? (조건이 참일 때 실행) : (조건이 거짓일 때 실행)
 
 const fruits_4 = ['Apple', 'Banana', 'Cherry']
@@ -435,3 +453,26 @@ function includesText(el) {
 
 const h1El_4 = document.querySelector('h1')
 console.log(includesText(h1El_4))
+
+// ** 전개 연산자 **
+console.log('전개 연산자')
+
+// 배열 데이터
+const numbers_2 = [1, 2, 3] 
+console.log(numbers_2) // [1, 2, 3]
+console.log(1, 2, 3) // 1, 2, 3
+
+const n1_3 = [1, 2, 3]
+const n2_3 = [2, 3, 4]
+const n3_3 = n1_3.concat(n2_3)
+const n4_3 = [...n1_3, ...n2_3]
+console.log(n3_3) // [1, 2, 3, 2, 3, 4]
+console.log(n4_3) // [1, 2, 3, 2, 3, 4]
+
+// 객체 데이터
+const o1 = { a: 1, b: 2, c: 3 }
+const o2 = { b: 99, c: 100, d: 101 }
+const o3 = Object.assign({}, o1, o2)
+const o4 = { ...o1, ...o2 }
+console.log(o3)
+console.log(o4)
