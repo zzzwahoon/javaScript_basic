@@ -38,3 +38,12 @@ const n1_2 = 1
 const n2_2 = 9
 
 console.log(n1 > n2)
+
+// null
+// 'null' 데이터는,
+// 존재하지 않는(nothing), 비어 있는(empty), 알 수 없는(unknown) 값을 명시적으로 나타낸다.
+let age = null;
+
+const h1El = document.querySelector('h1');
+console.log(h1El)
+console.log(h1El.textContent)
