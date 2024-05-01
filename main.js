@@ -391,40 +391,40 @@ console.log(a_5 < b_5) // true
 console.log(a_5 <= b_5) // true
 
 // ** 논리 연산자 **
-console.log('논리 연산자')
-// 호이스팅(Hoisting)
-hello()   // OK!
-// world()   // Error..
+// console.log('논리 연산자')
+// // 호이스팅(Hoisting)
+// hello()   // OK!
+// // world()   // Error..
 
-// 함수 선언문(Declaration)
-function hello() {
-  console.log('Hello~')
-}
-// 함수 표현식(Expression)
-const world = function () {
-  console.log('World~')
-}
+// // 함수 선언문(Declaration)
+// function hello() {
+//   console.log('Hello~')
+// }
+// // 함수 표현식(Expression)
+// const world = function () {
+//   console.log('World~')
+// }
 
-function getFruits() {
-  // 코드1
-  // 코드2
-  // 코드3
-  // 코드4
-  // ...
-  // return fruits
-}
+// function getFruits() {
+//   // 코드1
+//   // 코드2
+//   // 코드3
+//   // 코드4
+//   // ...
+//   // return fruits
+// }
 
-const getMovies = function() {
-  // 코드1
-  // 코드2
-  // 코드3
-  // 코드4
-  // ...
-  // return movies
-}
+// const getMovies = function() {
+//   // 코드1
+//   // 코드2
+//   // 코드3
+//   // 코드4
+//   // ...
+//   // return movies
+// }
 
-const fruits_3 = getFruits()
-const movies_3 = getMovies()
+// const fruits_3 = getFruits()
+// const movies_3 = getMovies()
 
 // ** 삼항 연산자 **
 console.log('삼항 연산자')
@@ -663,3 +663,39 @@ h1El_7.addEventListener('click', handler)
 h1El_7.addEventListener('click', function () {
   console.log(h1El_7.textContent)
 })
+
+// ** 선언과 표현, 호이스팅 **
+console.log('논리 연산자')
+// 호이스팅(Hoisting)
+hello()   // OK!
+// world()   // Error..
+
+// 함수 선언문(Declaration)
+function hello() {
+  console.log('Hello~')
+}
+// 함수 표현식(Expression)
+const world = function () {
+  console.log('World~')
+}
+
+function getFruits() {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return fruits
+}
+
+const getMovies = function() {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return movies
+}
+
+const fruits_3 = getFruits()
+const movies_3 = getMovies()
