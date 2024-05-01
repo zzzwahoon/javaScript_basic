@@ -574,3 +574,22 @@ for (let i = 0; i < 10; i += 1) {
   }
   console.log(i)
 }
+
+// ** 반복문 - while **
+console.log('***** 반복문 - while *****')
+// while 문
+// while (조건) {}
+
+for (let i = 0; i < 10; i++) {
+  const divEl = document.createElement('div')
+  divEl.textContent = i
+  document.body.append(divEl)
+}
+
+// let count = 1
+// while (count <= 10) {
+//   const divEl = document.createElement('div')
+//   divEl.textContent = count
+//   document.body.appendChild(divEl)
+//   count += 1
+// }
