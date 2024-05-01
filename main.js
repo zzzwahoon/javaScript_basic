@@ -699,3 +699,29 @@ const getMovies = function() {
 
 const fruits_3 = getFruits()
 const movies_3 = getMovies()
+
+// ** 반환과 종료 **
+console.log('** 반환과 종료 **')
+
+function sayHi(name) {
+  return `Hi, ${name}~`
+  console.log('동작하지 않음!')
+}
+const h = sayHi('Neo')
+console.log(h)  // 'Hi, Neo~'
+
+console.log('Hi, Neo~') // 'Hi Neo~'
+
+function a_f() {
+  //
+}
+function b_f() {
+  return
+}
+function c_f() {
+  return undefined
+}
+
+console.log(a_f())  // undefined
+console.log(b_f())  // undefined
+console.log(c_f())  // undefined
