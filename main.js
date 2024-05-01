@@ -846,3 +846,27 @@ const h1El_8 = document.querySelector('h1')
 h1El_8.addEventListener('click', () => {
   console.log(h1El_8.textContent)
 })
+
+// ** 즉시 실행함수(IIFE) **
+console.log('** 즉시 실행함수(IIFE) **')
+
+// 함수 정의(표현)
+const double = () => {
+  // ...
+}
+// 함수 실행 (호출)
+double()
+
+// 함수 정의 및 실행
+// 즉시 실행함수(IIFE, Immediately Invoked Function Expression)
+// ;(함수)()
+;(() => {
+  // ...
+})()
+
+// '즉시실행함수'의 다양한 사용법
+;(() => {})()           // (화살표함수)()
+;(function () {})()     // (일반함수)()
+;(function () {}())     // (일반함수())
+;!function () {}()      // !일반함수()
+;+function () {}()      // +일반함수()
