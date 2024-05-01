@@ -725,3 +725,38 @@ function c_f() {
 console.log(a_f())  // undefined
 console.log(b_f())  // undefined
 console.log(c_f())  // undefined
+
+// ** 인수와 매개변수 **
+console.log('** 인수와 매개변수 **')
+
+// 인수(argument)와 매개변수(parameter)
+function add_2(a, b) {
+  return a + b
+}
+
+console.log(add(2, 1))
+console.log(add(7, 4))
+console.log(add('A', 'B'))
+
+// 매개변수 기본값 (default value)
+function add_3(a, b = 1) {
+  if (a === undefined){ 
+    console.log('첫 번째 인수는 필수 입니다!')
+    return
+  }
+  return a + b
+}
+
+console.log(add_3(2))
+console.log(add_3(2, undefined))
+console.log(add_3())
+
+// 나머지 매개변수(rest parameter)
+function add_4(a, b, ...rest) {
+  console.log(a, b, rest)
+  return rest.reduce((acc, cur) => acc + cur, 0)
+}
+const res = add_4(1, 2, 3, 4, 5, 6, 7, 8)
+console.log(res)
+
+
