@@ -593,3 +593,42 @@ for (let i = 0; i < 10; i++) {
 //   document.body.appendChild(divEl)
 //   count += 1
 // }
+
+// ** 반복문 - for of, for in **
+console.log('***** 반복문 - for of, for in *****')
+
+// for of 문
+// for (const 아이템 변수 of 배열) {}
+const fruits_5 = ['Apple', 'Banana', 'Cherry', 'Durian']
+for (let i = 0; i < fruits_5.length; i++) {
+  const fruit = fruits_5[i]
+  console.log(fruit)
+}
+for (const fruit of fruits_5) {
+  if (fruit === 'Cherry') {
+    continue
+  }
+  console.log(fruit)
+  const divEl = document.createElement('div')
+  divEl.textContent = fruit
+  divEl.classList.add('fruit')
+  document.body.appendChild(divEl)
+}
+
+// for in 문
+// for (const 키변수 in 객체) {}
+const user_2 = {
+  name: 'Heropy',
+  age: 85,
+  isValid: true,
+  email: 'thesecon@gmail.com'
+}
+for (const key in user_2) {
+  if (key === 'age') {
+    continue
+  }
+  console.log(key, user_2[key])
+  const divEl = document.createElement('div')
+  divEl.innerHTML = `<b>${key}</b>: ${user_2[key]}`
+  document.body.appendChild(divEl)
+}
