@@ -815,3 +815,34 @@ const obj = {
   fnB: function () {},
   fnC: () => {}
 }
+
+// ** 콜백(callback) **
+console.log('** 콜백(callback) **')
+
+// 콜백(callback)
+const a_8 = callback => {
+  console.log('A')
+  callback()
+}
+const b_8 = () => {
+  console.log('B')
+}
+
+a_8(b_8)
+// 'A'
+// 'B'
+
+function add_5(a, b, cb) {
+  // 1초 후 실행
+  setTimeout(() => {
+    cb(a + b)
+  }, 1000)
+}
+add_5(3, 7, result => {
+  console.log(result) // 10
+})
+
+const h1El_8 = document.querySelector('h1')
+h1El_8.addEventListener('click', () => {
+  console.log(h1El_8.textContent)
+})
