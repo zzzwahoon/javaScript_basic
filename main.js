@@ -562,3 +562,15 @@ buttonEl_2.addEventListener('click', function () {
       h1El_6.textContent = '-'
   }
 })
+
+// ** 반복문 - for **
+console.log('***** 반복문 - for *****')
+// for 문
+// for (초기화; 조건; 증강) {}
+for (let i = 0; i < 10; i += 1) {
+  if (i % 2 === 0) {
+    // break
+    continue
+  }
+  console.log(i)
+}
