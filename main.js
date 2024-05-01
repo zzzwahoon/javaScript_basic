@@ -870,3 +870,31 @@ double()
 ;(function () {}())     // (일반함수())
 ;!function () {}()      // !일반함수()
 ;+function () {}()      // +일반함수()
+
+// ** 호출 스케줄링 **
+console.log('** 호출 스케줄링 **')
+
+// 콜백을 호출하는 타이머 설정
+const timeout = setTimeout(() => {
+  console.log('Hello~')
+}, 5000);
+
+// 타이머를 취소
+const btnEl = document.querySelector('.button_3')
+btnEl.addEventListener('click', () => {
+  console.log('타이머 취소!')
+  clearTimeout(timeout)
+})
+
+// 콜백을 호출하는 타이머 설정
+const timeout_2 = setInterval(() => {
+  console.log('Hello~')
+}, 3000);
+
+// 타이머를 취소
+const btnEl_2 = document.querySelector('.button_4')
+btnEl_2.addEventListener('click', () => {
+  console.log('타이머 취소!')
+  clearInterval(timeout_2)
+})
+
