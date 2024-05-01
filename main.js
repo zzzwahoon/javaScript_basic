@@ -1,5 +1,5 @@
 // ***** JS 데이터 *****
-
+console.log('***** JS 데이터 *****')
 // ** 원시형 **
 // string
 console.log('원시형 - string')
@@ -275,8 +275,9 @@ console.log(data.object.constructor === Object)
 console.log(data.function.constructor === Function)
 
 // ***** 연산자와 구문 *****
-console.log('산술, 할당, 증감 연산자')
+console.log('***** 연산자와 구문 *****')
 // ** 산술, 할당, 증감 연산자 **
+console.log('산술, 할당, 증감 연산자')
 // 산술 연산자(Arithmetic operator)
 console.log(1 + 2)
 console.log(5 - 7)
@@ -504,9 +505,9 @@ if (score >= 90) {
   console.log('F')
 }
 
-const inputEl = document.querySelector('input')
-const buttonEl = document.querySelector('button')
-const h1El_5 = document.querySelector('h1')
+const inputEl = document.querySelector('.input_1')
+const buttonEl = document.querySelector('.button_1')
+const h1El_5 = document.querySelector('.h1_1')
 
 buttonEl.addEventListener('click', function () {
   const score = Number(inputEl.value)
@@ -632,3 +633,33 @@ for (const key in user_2) {
   divEl.innerHTML = `<b>${key}</b>: ${user_2[key]}`
   document.body.appendChild(divEl)
 }
+
+// ***** 함수 *****
+console.log('***** 함수 *****')
+// ** 데이터와 호출, 기명과 익명함수 **
+console.log('** 데이터와 호출, 기명과 익명함수 **')
+
+function hello() {
+  return 'Hello~'
+}
+
+// 함수 데이터(Data)
+console.log(hello)
+console.log(typeof hello)
+
+// 함수 호출(Call)
+console.log(hello())
+console.log(typeof hello())
+
+const h1El_7 = document.querySelector('h1')
+
+// 기명 함수 - function 이름() {}
+function handler() {
+  console.log(h1El_7.textContent)
+}
+h1El_7.addEventListener('click', handler)
+
+// 익명 함수 - function () {}
+h1El_7.addEventListener('click', function () {
+  console.log(h1El_7.textContent)
+})
