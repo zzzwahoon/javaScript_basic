@@ -760,3 +760,58 @@ const res = add_4(1, 2, 3, 4, 5, 6, 7, 8)
 console.log(res)
 
 
+// ** 화살표 함수 **
+console.log('** 화살표 함수 **')
+
+// 일반 함수
+function hello1() {
+  return 'Hello~'
+}
+const add1 = function(a, b) {
+  return a + b
+}
+const log1 = function (c) {
+  console.log(c)
+}
+
+// 화살표 함수
+const hello2 = () => 'Hello~'
+const add2 = (a, b) => a + b
+const log2 = c => {
+  console.log(c)
+}
+
+// 화살표 함수의 소괄호 생략
+const a_6 = () => {}
+const b_6 = x => {} // 매개변수가 1개만 있을때 생략가능 (기본값지정때는 불가)
+const c_6 = (x, y) => {}
+
+// 화살표 함수의 중괄호 생략
+const a_7 = x => {
+  return x * x
+}
+const b_7 = x => x * x
+
+const c_7 = x => {
+  console.log(x * x)
+  return x * x
+}
+
+const d_7 = () => {
+  return [1, 2, 3]
+}
+const e_7 = () => [1, 2, 3]
+
+const g_7 = () => {
+  return { a: 1 }
+}
+const h_7 = () => ({ a: 1 })
+// const h_7 = () => { a: 1 } // error: unexpected token ':'
+
+
+// 객체 데이터의 메소드 축약
+const obj = {
+  fnA() {}, // 일반 함수(fnB)의 축약형
+  fnB: function () {},
+  fnC: () => {}
+}
