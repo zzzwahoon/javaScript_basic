@@ -1217,7 +1217,39 @@ console.log(user_3.every(user => user.age))
 console.log('** 04-7 - 표준 내장 객체 - Array 2 - filter, find **')
 
 // Array(배열) 표준 내장 객체(Built-in Object)
+// .filter() - 배열에서 콜백 테스트를 통과하는 모든 요소로 새로운 배려을 만들어 반환
+// 만약 모든 요소가 테스트를 통과하지 못하면 빈 배열을 반환
+const numbers_5 = [17, 20, 199, 5, 48]
+const filteredNumbers = numbers_5.filter(number => number < 30)
+console.log(filteredNumbers)
 
+const user_4 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+const youngUsers = user_4.filter(user => user.age < 30)
+console.log(youngUsers)
+const usersWithEmail = user_4.filter(user => user.email)
+console.log(usersWithEmail)
+const userWithPhone = user_4.filter(user => user.phone)
+console.log(userWithPhone)
+
+// .find() - 배열에서 콜백 테스트를 처음으로 통과하는 요소를 반환
+// 만약 테스트가 동과되면, 이후 테스트는 진행되지 않는다
+// 만약 모든 테스트가 실패하면, 'undefine'를 반환
+
+const numbers_6 = [17, 20, 199, 5, 48]
+const foundNumber = numbers_6.find(number => number < 30)
+console.log(foundNumber)
+
+const user_5 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+const foundUser = user_5.find(user => !user.email)
+console.log(foundUser)
 
 // 04-8 - 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join
 console.log('** 04-8 - 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join **')
