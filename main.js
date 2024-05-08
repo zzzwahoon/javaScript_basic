@@ -1315,6 +1315,61 @@ console.log(msg4.split('').reverse().join(''))
 console.log('** 04-9 - 표준 내장 객체 - Array 4 - map, push, reduce **')
 
 // Array(배열) 표준 내장 객체(Built-in Object)
+// .map() - 배열의 모든 요소에 대해 각 콜백을 호출하고 반환된 결과를 새로운 배열로 반환
+
+const numbers_10 = [17, 20, 199, 5, 48]
+const doubleNumbers = numbers_10.map(number => number * 2)
+console.log(doubleNumbers)
+console.log(numbers_10)
+
+const fruits_13 = ['Apple', 'Banana', 'Cherry']
+const capitalizedFruits = fruits_13.map(fruit => fruit.toUpperCase())
+console.log(capitalizedFruits)
+console.log(fruits_13)
+
+const user_7 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+const userEmails = user_7.map(user => user.email)
+console.log(userEmails)
+console.log(userEmails.filter(email => email))
+
+// .push() - 배열의 마지막에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환
+// 배열 원본이 변경된다
+const fruits_14 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_14.push('Durian'))
+console.log(fruits_14.length)
+console.log(fruits_14)
+
+const numbers_11 = [17, 20, 199, 5, 48]
+console.log(numbers_11.push(9, 10, 11))
+console.log(numbers_11.length)
+console.log(numbers_11)
+
+// .reduce() - 배열의 각 요소에 대해 콜백을 호출하고,
+// 각 콜백의 반환 값을 다음 콜백으로 전달해 마지막 콜백의 반환 값을 최종 반환
+const numbers_12 = [17, 20, 199, 5, 48]
+
+let sum1 = 0
+numbers_12.forEach(number => {
+  sum1 += number
+})
+console.log('합계:', sum1)
+
+const sum2 = numbers_12.reduce((accumulator, number) => {
+  return accumulator + number
+}, 0)
+console.log('합계:', sum2)
+
+const user_8 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+const sum3 = user_8.reduce((acc, user) => acc + user.age, 0)
+console.log(sum3)
 
 // 04-10 - 표준 내장 객체 - Array 5 - reverse, slice, some, sort
 console.log('** 04-10 - 표준 내장 객체 - Array 5 - reverse, slice, some, sort **')
