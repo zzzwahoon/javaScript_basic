@@ -1441,3 +1441,85 @@ console.log(...user_10)
 console.log('** 04-11 - 표준 내장 객체 - Array 6 - splice, unshift, isArray, from **')
 
 // Array(배열) 표준 내장 객체(Built-in Object)
+// .splice(인덱스, 삭제개수, 추가요소) - 배열의 요소를 추가하거나 삭제하거나 교체합니다.
+// 배열 원본이 변경된다
+
+// 요소추가
+const fruits_17_1 = ['Apple', 'Banana', 'Cherry']
+fruits_17_1.splice(2, 0, 'Durian')
+console.log(fruits_17_1)
+
+// 요소 삭제
+const fruits_17_2 = ['Apple', 'Banana', 'Cherry']
+fruits_17_2.splice(1, 2)
+console.log(fruits_17_2)
+
+// 요소 교체
+const fruits_17_3 = ['Apple', 'Banana', 'Cherry']
+fruits_17_3.splice(1, 1, 'Durian', 'Orange', 'Mango')
+console.log(fruits_17_3)
+
+// .unshift() - 배열의 시작 부분에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환
+// 배열 원본이 변경
+const fruits_18 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_18.unshift('Durian'))
+console.log(fruits_18.length)
+console.log(fruits_18)
+
+const numbers_16 = [17, 20, 199, 5, 48]
+console.log(numbers_16.unshift(9, 10, 11))
+console.log(numbers_16.length)
+console.log(numbers_16)
+
+// 배열 메소드의 콜백은 항상 현재 반복의 인덱스를 얻을 수 있다
+const numbers_17 = [17, 20, 199, 5, 48]
+numbers_17.every((num, idx) => {
+  console.log(num, idx)
+  return true
+})
+numbers_17.filter((num, idx) => {
+  console.log(num, idx)
+  return true
+})
+numbers_17.reduce((acc, cur, idx) => {
+  console.log(acc, cur, idx)
+  return acc + cur
+}, 0)
+
+
+// Array.isArray() - 배열 데이터인지 확인
+const fruits_19 = ['Apple', 'Banana', 'Cherry']
+const arrayLikeFruits = {
+  0: 'Apple',
+  1: 'Banana',
+  2: 'Cherry',
+  length: 3
+}
+
+console.log(arrayLikeFruits[2])
+console.log(Array.isArray(fruits_19))
+console.log(Array.isArray(arrayLikeFruits))
+
+
+// Array.from() - 유사 배열(Array-like)을 실제 배열로 반환
+const fruits_20 = ['Apple', 'Banana', 'Cherry']
+const arrayLikeFruits_2 = {
+  0: 'Apple',
+  1: 'Banana',
+  2: 'Cherry',
+  length: 3
+}
+console.log(fruits_20)
+console.log(arrayLikeFruits_2)
+
+console.log(fruits_20[1])
+console.log(arrayLikeFruits_2[1])
+
+console.log(fruits_20.length)
+console.log(arrayLikeFruits_2.length)
+
+console.log(Array.isArray(fruits_20))
+console.log(Array.isArray(arrayLikeFruits_2))
+
+console.log(fruits_20.map(fruit => fruit.toUpperCase()))
+console.log(Array.from(arrayLikeFruits_2).map(fruit => fruit.toUpperCase()))
