@@ -1172,5 +1172,69 @@ console.log(date2)
 console.log(new Date())
 console.log(new Date().toISOString())
 
-// 04-5 - 표준 내장 객체 - Date
-console.log('** 04-05 - 표준 내장 객체 - Date **')
+// 04-6 - 표준 내장 객체 - Array1 - length, at, concat, every
+console.log('** 04-6 - 표준 내장 객체 - Array1 - length, at, concat, every **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .length - 배열의 길이(숫자)를 반환
+const fruits_6 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_6.length)
+
+// .at() - 배열 인덱싱하며, 만약 음수를 사용하면 뒤에서부터 인뎅싱한다
+console.log(fruits_6[1])
+console.log(fruits_6.at(1))
+
+console.log(fruits_6[fruits_6.length - 1])
+console.log(fruits_6.at(-1))
+
+// .concat() - 배열에서 주어진 배열을 병합해 새로운 배열을 반환
+const fruits_7 = ['Apple', 'Banana', 'Cherry']
+const fruits_8 = ['Cherry', 'Durian']
+const fruits_9 = fruits_7.concat(fruits_8)
+const fruits_10 = ['Apple', 'Banana', 'Cherry', ...fruits_8]
+
+console.log(fruits_7)
+console.log(fruits_8)
+console.log(fruits_9)
+console.log(fruits_10)
+
+// .every() - 배열의 모든 요소가 콜백 테스트를 톡화하는지 확인
+// 만약 텍스트가 하나라도 실패하면, 이후 테스트는 진행하지 않고 'false'를 반환
+
+const numbers_4 = [17, 29, 199, 5, 48]
+const isValid_2 = numbers_4.every(item => item < 200)
+console.log(isValid_2)
+
+const user_3 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+console.log(user_3.every(user => user.email))
+console.log(user_3.every(user => user.age))
+
+// 04-7 - 표준 내장 객체 - Array 2 - filter, find
+console.log('** 04-7 - 표준 내장 객체 - Array 2 - filter, find **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+
+
+// 04-8 - 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join
+console.log('** 04-8 - 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+
+// 04-9 - 표준 내장 객체 - Array 4 - map, push, reduce
+console.log('** 04-9 - 표준 내장 객체 - Array 4 - map, push, reduce **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+
+// 04-10 - 표준 내장 객체 - Array 5 - reverse, slice, some, sort
+console.log('** 04-10 - 표준 내장 객체 - Array 5 - reverse, slice, some, sort **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+
+// 04-11 - 표준 내장 객체 - Array 6 - splice, unshift, isArray, from
+console.log('** 04-11 - 표준 내장 객체 - Array 6 - splice, unshift, isArray, from **')
+
+// Array(배열) 표준 내장 객체(Built-in Object)
