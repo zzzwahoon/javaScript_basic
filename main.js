@@ -1255,6 +1255,61 @@ console.log(foundUser)
 console.log('** 04-8 - 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join **')
 
 // Array(배열) 표준 내장 객체(Built-in Object)
+// .findIndex() - 배열에서 콜백 테스트를 처음으로 통과하는 요소의 인덱스를 반환
+// 만약 테스트가 통과되면, 이후 테스트는 진행되지 않는다
+// 만약 모든 테스트가 실패하면, '-1'를 반환
+const numbers_7 = [17, 20, 199, 5, 48]
+const foundIndex = numbers_7.findIndex(number => number === 5)
+console.log(foundIndex)
+
+const user_6 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+const foundUserIndex = user_6.findIndex(user => !user.email)
+console.log(foundUserIndex)
+
+// .forEach() - 배열의 각 요소에 대해 콜백을 호출
+// 만약 배열이 비어있다면, 아무런 동작도 하지 않는다
+// 만약 반복을 종료하고 싶다면, for 반복문을 사용
+
+const numbers_8 = [17, 20, 199, 5, 48]
+numbers_8.forEach(number => {
+  console.log(number)
+})
+
+let sum = 0
+numbers_8.forEach(number => {
+  sum += number
+})
+console.log('합계:', sum)
+
+for (const number of numbers_8) {
+  if (number > 100) {
+    break
+  }
+  console.log(number)
+}
+
+// .includes() - 배열에서 특정 요소가 포함되어 있는지 확인한다
+const fruits_11 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_11.includes('Apple'))
+console.log(fruits_11.includes('banana')) // false
+
+const numbers_9 = [17, 20, 199, 5, 48]
+console.log(numbers_9.includes(20))
+console.log(numbers_9.includes(200))  // false
+
+// .join() - 배열의 모든 요소를 연결해 하나의 문자열로 만든다
+const fruits_12 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_12.join())
+console.log(fruits_12.join(''))
+console.log(fruits_12.join(', '))
+console.log(fruits_12.join('/'))
+
+const msg4 = 'Hello world!'
+console.log(msg4.split('').reverse().join(''))
 
 // 04-9 - 표준 내장 객체 - Array 4 - map, push, reduce
 console.log('** 04-9 - 표준 내장 객체 - Array 4 - map, push, reduce **')
