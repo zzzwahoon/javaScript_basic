@@ -832,15 +832,15 @@ a_8(b_8)
 // 'A'
 // 'B'
 
-function add_5(a, b, cb) {
-  // 1초 후 실행
-  setTimeout(() => {
-    cb(a + b)
-  }, 1000)
-}
-add_5(3, 7, result => {
-  console.log(result) // 10
-})
+// function add_5(a, b, cb) {
+//   // 1초 후 실행
+//   setTimeout(() => {
+//     cb(a + b)
+//   }, 1000)
+// }
+// add_5(3, 7, result => {
+//   console.log(result) // 10
+// })
 
 const h1El_8 = document.querySelector('h1')
 h1El_8.addEventListener('click', () => {
@@ -875,26 +875,60 @@ double()
 console.log('** 호출 스케줄링 **')
 
 // 콜백을 호출하는 타이머 설정
-const timeout = setTimeout(() => {
-  console.log('Hello~')
-}, 5000);
+// const timeout = setTimeout(() => {
+//   console.log('Hello~')
+// }, 5000);
 
 // 타이머를 취소
-const btnEl = document.querySelector('.button_3')
-btnEl.addEventListener('click', () => {
-  console.log('타이머 취소!')
-  clearTimeout(timeout)
-})
+// const btnEl = document.querySelector('.button_3')
+// btnEl.addEventListener('click', () => {
+//   console.log('타이머 취소!')
+//   clearTimeout(timeout)
+// })
 
 // 콜백을 호출하는 타이머 설정
-const timeout_2 = setInterval(() => {
-  console.log('Hello~')
-}, 3000);
+// const timeout_2 = setInterval(() => {
+//   console.log('Hello~')
+// }, 3000);
 
 // 타이머를 취소
-const btnEl_2 = document.querySelector('.button_4')
-btnEl_2.addEventListener('click', () => {
-  console.log('타이머 취소!')
-  clearInterval(timeout_2)
-})
+// const btnEl_2 = document.querySelector('.button_4')
+// btnEl_2.addEventListener('click', () => {
+//   console.log('타이머 취소!')
+//   clearInterval(timeout_2)
+// })
 
+// ** 04-01 - 표준 내장 객체 - String 1 **
+console.log('** 04-01 - 표준 내장 객체 - String 1 **')
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .length - 문자의 길이(숫자)를 반복한다.
+
+const msg1 = 'Hello world!'
+//            012345678901
+console.log(msg1.length)  // 12
+
+const msg2 = 'The quick brown fox jumps over the lazy dog.'
+//            012345678901234567890123456789012345678901234
+console.log(msg1.length)  // 44
+
+const h1El_9 = document.querySelector('.h1_3')
+h1El_9.textContent = msg2.length > 20 ? `${msg2.slice(0, 20)}...` : msg2
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .includes() - 문자에서 특정 문자가 포함되어 있는지 확인합니다
+
+console.log(msg1.includes('!')) // true
+console.log(msg2.includes('dog')) // false
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .replace() - 문자에서 특정 문자를 다른 문자로 바꾼 새로운 문자를 반환합니다
+
+console.log(msg1.replace('world', 'earth'))
+console.log(msg1)
+console.log(msg2.replace('fox', 'cat'))
+console.log(msg2)
+
+console.log(msg1.replace(' ', ''))
+console.log(msg2.replace(' ', ''))
+console.log(msg2.replaceAll(' ', ''))
