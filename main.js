@@ -992,3 +992,78 @@ buttonEl_5.addEventListener('click', () => {
       console.log(`//${value}//`)
     }
 })
+
+// 04-03 - 표준 내장 객체 - Number
+console.log('** 04-03 - 표준 내장 객체 - Number **')
+
+// Number(숫자) 표준 내장 객체(Built-in Object)
+// .toFixed() - 숫자에서 지정된 자릿수까지 표현하는 새로운 문자를 반환한다.
+
+const num = 3.1415926535
+
+console.log(num.toFixed(2)) // '3.14'
+console.log(Number('3.14 ')) // '3.14
+
+// Number(숫자) 표준 내장 객체(Built-in Object)
+// .toLocaleStirng() - 숫자에서 현지 언어 형식으로 바꾼 새로운 문자를 반환한다
+
+const num1 = 1000
+const num2 = 100000000
+const num3 = num1.toLocaleString()
+const num4 = num2.toLocaleString()
+
+console.log(num3)
+console.log(num4)
+console.log(Number(num3.replaceAll(',', '')))
+console.log(Number(num4.replaceAll(',', '')))
+
+// Number(숫자) 표준 내장 객체(Built-in Object)
+// Number(), Number.parseInt(), Number.parseFloat()
+// 데이터.메소드() vs 클래스.메소드()
+
+// 더 광범위하게 해석, 유연함
+console.log('Number(데이터)') // 데이터를 숫자로 변환한다.
+console.log(Number('123'))
+console.log(Number('123.456'))
+console.log(Number('abc123'))
+console.log(Number('123abc'))
+console.log(Number(''))
+console.log(Number('abc'))
+console.log(Number(true))
+console.log(Number(false))
+console.log(Number({}))
+console.log(Number([]))
+
+// 숫자를 추출해 명확하고 예측 가능하게 동작, 진법 지정 가능, 정수만 처리
+console.log('Number.parseInt(문자, 진수)') // 문자를 정수로 반환한다
+console.log(Number.parseInt('123', 10))
+console.log(Number.parseInt('123.456', 10))
+console.log(Number.parseInt('abc123', 10))
+console.log(Number.parseInt('123abc', 10))
+console.log(Number.parseInt('', 10))
+console.log(Number.parseInt('abc', 10))
+console.log(Number.parseInt('true', 10))
+console.log(Number.parseInt('flase', 10))
+console.log(Number.parseInt({}, 10))
+console.log(Number.parseInt([], 10))
+
+// parseInt 장점에 더해, 부동소수점 실수까지 처리
+console.log('Number.parseFloat(문자)')
+console.log(Number.parseFloat('123'))
+console.log(Number.parseFloat('123.456'))
+console.log(Number.parseFloat('abc123'))
+console.log(Number.parseFloat('123abc'))
+
+// Number.isInteger() - 데이터가 정수(숫자 데이터)인지 확인
+console.log(Number.isInteger(123))
+console.log(Number.isInteger(3.14))
+console.log(Number.isInteger(-82))
+console.log(Number.isInteger(0))
+console.log(Number.isInteger('123'))
+console.log(Number.isInteger('abc'))
+
+// Number.isNaN() - 데이터가 'NaN'인지 확인한다
+console.log(Number.isNaN(NaN))
+console.log(Number.isNaN(123))
+console.log(Number.isNaN(Infinity))
+console.log(Number.isNaN('abc'))
