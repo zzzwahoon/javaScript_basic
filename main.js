@@ -1375,6 +1375,67 @@ console.log(sum3)
 console.log('** 04-10 - 표준 내장 객체 - Array 5 - reverse, slice, some, sort **')
 
 // Array(배열) 표준 내장 객체(Built-in Object)
+// .revers() - 배열의 순서를 반전
+// 배열 원본이 변경
+
+const fruits_15 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits_15.reverse())
+console.log(fruits_15)
+
+const fruits_16 = ['Apple', 'Banana', 'Cherry']
+console.log([...fruits_16].reverse())
+
+const msg5 = 'Hello world!'
+console.log(msg5.split('').reverse().join(''))
+
+// .slice() - 배열의 일부를 추출해 새로운 배열로 반환
+const numbers_13 = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+console.log(numbers_13.slice(0, 3))
+console.log(numbers_13.slice(4, -1))
+console.log(numbers_13.slice(4))
+console.log(numbers_13.slice(-4))
+console.log(numbers_13.slice(-4, -1))
+console.log(numbers_13.slice())
+console.log(numbers_13)
+
+// .some() - 배열의 요소 중 콜백 테스트를 통과하는 요소가 하나라도 있는지 확인
+// 만약 테스트가 통과되면, 이후 테스트는 진행되지 않는다
+const numbers_14 = [17, 20, 199, 5, 48]
+const isValid_3 = numbers_14.some(number => number > 200)
+console.log(isValid_3)
+
+const user_9 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+console.log(user_9.some(user => user.email))
+console.log(user_9.some(user => user.phone))
+
+// .sort() - 배열의 요소를 콜백의 반환 값에 따라 정렬한다
+// 만약 콜백을 제공하지 않으면, 요소를 유니코드 포인트 순서대로 정렬
+// 배열 원본이 변경된다
+const numbers_15 = [17, 20, 199, 5, 48]
+numbers_15.sort()
+console.log(numbers_15)
+
+numbers_15.sort((a, b) => a - b)
+console.log(numbers_15)
+
+numbers_15.sort((a, b) => b - a)
+console.log(numbers_15)
+
+const user_10 = [
+  { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+  { name: 'Evan', age: 47, email: 'evan@heropy.dev' },
+  { name: 'Lewis', age: 24 }
+]
+
+user_10.sort((a, b) => a.age - b.age)
+console.log(...user_10)
+
+user_10.sort((a, b) => b.age - a.age)
+console.log(...user_10)
 
 // 04-11 - 표준 내장 객체 - Array 6 - splice, unshift, isArray, from
 console.log('** 04-11 - 표준 내장 객체 - Array 6 - splice, unshift, isArray, from **')
