@@ -932,3 +932,63 @@ console.log(msg2)
 console.log(msg1.replace(' ', ''))
 console.log(msg2.replace(' ', ''))
 console.log(msg2.replaceAll(' ', ''))
+
+// 04-02 - 표준 내장 객체 - String 2
+console.log('** 04-01 - 표준 내장 객체 - String 2 **')
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .slice() - 문자에서 일부를 추출해 새로운 문자를 반환합니다.
+
+console.log(msg1.slice(0, 5)) // 'Hello'
+console.log(msg1)
+console.log(msg1.slice(6, -1)) // 'world'
+console.log(msg1.slice(6)) // 'world!'
+console.log(msg2.slice(10, 19)) // 'brown fox'
+console.log(msg2.slice(35, -1)) // 'lazy dog'
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .split() - 문자를 구분자로 나누어 배열로 반환합니다.
+
+console.log(msg1.split(' '))  // ['Hello', 'world!']
+console.log(msg2.split(' '))  // ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog.']
+
+console.log(msg1.split(''))
+console.log(msg1.split('').reverse().join(''))  // !dlrow olleH
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .toLowerCase() - 문자를 영어 소문자로 바꾼 새로운 문자로 반환한다
+// .toUpperCase() - 문자를 영어 대문자로 바꾼 새로운 문자로 반환한다
+
+console.log(msg1.toLowerCase())
+console.log(msg1)
+console.log(msg2.toLowerCase())
+
+console.log(msg1.toUpperCase())
+console.log(msg1)
+console.log(msg2.toUpperCase())
+
+// String(문자) 표준 내장 객체(Built-in Object)
+// .trim() - 문자에서 앞뒤 공백을 제거한 새로운 문자를 반환한다
+
+const msg3 = ' Hello world!    '
+
+console.log(msg3.trim())
+console.log(msg3)
+
+const inputEl_5 = document.querySelector('.input_5')
+const buttonEl_5 = document.querySelector('.button_5')
+
+inputEl_5.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    const value = inputEl_5.value.trim()
+    if (value) {
+      console.log(`//${value}//`)
+    }
+  }
+})
+buttonEl_5.addEventListener('click', () => {
+  const value = inputEl_5.value.trim()
+    if (value) {
+      console.log(`//${value}//`)
+    }
+})
