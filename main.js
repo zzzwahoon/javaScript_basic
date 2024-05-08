@@ -1114,5 +1114,63 @@ console.log(random()) // 0 ~ 9
 console.log(random(0, 100)) // 0 ~ 99
 console.log(random(101, 200)) // 101 ~ 999
 
-// 04-04 - 표준 내장 객체 - Math
-console.log('** 04-04 - 표준 내장 객체 - Math **')
+// 04-5 - 표준 내장 객체 - Date
+console.log('** 04-05 - 표준 내장 객체 - Date **')
+
+// Date(날짜) 표준 내장 객체(Built-in Object)
+// 'new Date()'를 통해 반환된 인스턴스를 '타임스탬프'(Timestamp)라고 한다
+
+let date = new Date()
+console.log(date)
+
+// 2024년 12월 16일 17시 23분 31초
+// date = new Date(2024, 11, 16, 17, 23, 31)
+// console.log(date)
+
+// 타임스탬프에서 각정보를 얻을 수 있다.
+console.log(date.getFullYear())
+console.log(date.getMonth())
+console.log(date.getDate())
+console.log(date.getDay())
+console.log(date.getHours())
+console.log(date.getMinutes())
+console.log(date.getSeconds())
+
+const h1El_10 = document.querySelector('.h1_4')
+h1El_10.textContent = `${date.getFullYear()}년`
+
+function getdayKo(day) {
+  switch (day) {
+    case 0: return '일요일'
+    case 1: return '월요일'
+    case 2: return '화요일'
+    case 3: return '수요일'
+    case 4: return '목요일'
+    case 5: return '금요일'
+    case 6: return '토요일'
+  }
+}
+
+// .getTime() - 유닉스 타임(UNIX TIME)으로부터 경과한 시간(ms)을 반환한다
+// Date.now() - 현재 시간을 유닉스 타임으로 변환
+// 유닉스 타임이란, 1970.01.01 00:00:00 시간을 의미
+
+const date1 = new Date()
+const date2 = Date.now()
+
+console.log(date1)
+console.log(date1.getTime())
+console.log(date2)
+
+// setTimeout(() => {
+//   console.log(Date.now(), date2)
+//   console.log(Date.now() - date2)
+// }, 1000)
+
+// 날짜 인스턴스의 협정 세계시(UTC)를 'ISO 8601' 포맷으로 반환
+// 'ISO 8601'는 날짜와 시간을 표현하는 국제 표준 규격
+console.log(new Date())
+console.log(new Date().toISOString())
+
+// 04-5 - 표준 내장 객체 - Date
+console.log('** 04-05 - 표준 내장 객체 - Date **')
