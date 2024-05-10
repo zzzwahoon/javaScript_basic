@@ -1691,3 +1691,68 @@ console.log(el_4.children)
 console.log(el_4.children[el_4.children.length - 1])
 console.log(el_4.firstElementChild)
 console.log(el_4.lastElementChild)
+
+// 05-03 - 생성,조회,수정 1
+console.log('** 05-03 - 생성,조회,수정 1 **')
+
+// document.createElement(태그이름) - HTML 요소를 메모리상에 생성해 반환
+
+const divEl_2 = document.createElement('div')
+divEl_2.textContent = 'Hello world!2'
+divEl_2.classList.add('box')
+console.log(divEl_2)
+
+const inputEl_6 = document.createElement('input')
+inputEl_6.value = 'Hello world!2'
+console.log(inputEl_6)
+
+const buttonEl_6 = document.createElement('button')
+buttonEl_6.textContent = 'Click!'
+console.log(buttonEl_6)
+
+document.body.append(divEl_2, inputEl_6, buttonEl_6)
+
+// 요소.prepend(노드1, 노드2, ...) - 하나 이상의 노드를 요소의 첫 번째 자식으로 삽입
+// 요소.append(노드1, 노드2, ...) - 하나 이상의 노드를 요소의 마지막에 자식으로 삽입
+// 노드.appendChild(노드1) - 하나의 노드를 노드의 마지막 자식으로 삽입하고 삽입한 노드를 반환
+
+const parentEl_2 = document.querySelector('.parent')
+
+const divEl_3 = document.createElement('div')
+divEl_3.textContent = '새로운 요소!'
+
+const inputEl_7 = document.createElement('input')
+
+const res1 = parentEl_2.prepend(new Comment(' 새로운 주석! '))
+const res2 = parentEl_2.append(divEl_3, '새로운 텍스트!')
+const res3 = parentEl_2.appendChild(inputEl_7).placeholder = '값을 입력하세요!'
+
+console.log(res1, res2)
+console.log(res3)
+
+// 요소.remove() - 요소를 제거한다
+
+const el_5 = document.querySelector('.child')
+console.log(el_5)
+el_5.remove()
+
+// 노드.contains(노드) - 주어진 노드가 대상 노드를 포함한 후손인지 확인
+
+const parentEl_3 = document.querySelector('.parent')
+const childEl = document.querySelector('.child')
+
+console.log(parentEl_3.contains(childEl))
+console.log(document.body.contains(parentEl_3))
+console.log(document.body.contains(childEl))
+console.log(document.body.contains(document.body))
+console.log(parentEl_3.contains(parentEl_3))
+console.log(parentEl_3.contains(document.body))
+console.log(childEl.contains(document.body))
+
+
+// 05-04 - 생성,조회,수정 2
+console.log('** 05-04 - 생성,조회,수정 2 **')
+
+
+// 05-04 - 생성,조회,수정 3
+console.log('** 05-04 - 생성,조회,수정 3 **')
