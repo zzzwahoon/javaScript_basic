@@ -1523,3 +1523,54 @@ console.log(Array.isArray(arrayLikeFruits_2))
 
 console.log(fruits_20.map(fruit => fruit.toUpperCase()))
 console.log(Array.from(arrayLikeFruits_2).map(fruit => fruit.toUpperCase()))
+
+// 04-12 - 표준 내장 객체 - Object
+console.log('** 04-12 - 표준 내장 객체 - Object **')
+
+// Object(객체) 표준 내장 객체(Built-in Object)
+// Object.assign(대상, 출처1, 출처2, ...)
+// - 하나 이상의 '출처 객체(Source)'로 부터 '대상 객체(Target)'로 속성을 복사하고 대상 객체를 반환
+
+const target = { a: 1, b: 2 }
+const source1 = { b: 3, c: 4 }
+const source2 = { c: 5, d: 6 }
+const result = Object.assign(target, source1, source2)
+// const result = Object.assign({}, target, source1, source2)
+console.log(target)
+console.log(result)
+
+const userA = {
+  name: 'Neo',
+  age: 85
+}
+const userB = {
+  age: 22,
+  email: 'thesecon@gmail.com',
+  isValid: true
+}
+// const neo = Object.assign(userA, userB)
+const neo = Object.assign({}, userA, userB)
+console.log(neo)
+console.log(userA)
+
+// Object.keys() - 객체의 모든 키를 배열로 반환
+// 순서는 보장하지 않는다
+
+const user_11 = {
+  name: 'Neo',
+  age: 85,
+  email: 'neo@heropy.dev',
+  isValid: true
+}
+const keys = Object.keys(user_11)
+console.log(keys)
+
+keys.forEach(key => {
+  const el = document.createElement('div')
+  el.innerHTML = `<strong>${key}</strong>: ${user_11[key]}`
+  document.body.append(el)
+})
+
+// 04-13 - 표준 내장 객체 - JSON
+console.log('** 04-13 - 표준 내장 객체 - JSON **')
+
