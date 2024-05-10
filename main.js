@@ -1613,7 +1613,7 @@ fetch('https://api.heropy.dev/v0/users', {
   body: JSON.stringify(user_13)
 })
   .then(res => res.json())
-  .then(res => console.log(res))
+  // .then(res => console.log(res))
 
 // 05-01 - DOM - Node와 Element
 console.log('** 05-01 - DOM - Node와 Element **')
@@ -1631,3 +1631,63 @@ console.log(parentEl.childNodes)
 
 // 요소의 모든 자식 요소를 확인한다
 console.log(parentEl.children)
+
+// 05-02 - DOM - 검색과 탐색
+console.log('** 05-02 - DOM - 검색과 탐색 **')
+
+// document.querySelector(선택자) - 선태갖로 검색한 요소를 하나 반환
+// 만약 검색 결과가 없으면, 'null'을 반환
+
+const el = document.querySelector('.parent')
+console.log(el)
+
+console.log(el.querySelector('div'))
+
+// document.querySelectorAll(선택자)
+// - 선택자로 검색한 모든 요소를 NodeList 객체로 반환
+
+const nodeList = document.querySelectorAll('.child')
+console.log(nodeList)
+console.log(nodeList[0], nodeList[1], nodeList[2])
+
+// NodeList 객체는 유사배열이며 '.forEach()' 메소드는 내장되어 있지만,
+// 기타 배열 메소드는 사용할 수 없다
+nodeList.forEach((el, index) => console.log(index + 1, el))
+
+// NodeList 객체는 'Array.from()' 메소드를 통해 배열로 반환할 수 있다.
+const nodes = Array.from(nodeList)
+const names = nodes.map(el => el.textContent)
+console.log(names)
+
+// document.getElementById(아이디)
+// - HTML 'id' 속성(Attributes) 값으로 검색한 요소를 하나 반환
+// 만약 검색 결과가 없으면, null을 반환
+
+const idEl = document.getElementById('c1')
+console.log(idEl)
+
+const selEl = document.querySelector('#c1')
+console.log(selEl)
+
+// 노드.parentElement - 노드의 부모 요소를 반환
+
+const el_2 = document.querySelector('.child')
+console.log(el_2)
+console.log(el_2.parentElement)
+
+// 요소.previousElementSibling - 요소의 이전 형제 요소를 반환
+// 요소.nextElementSibling - 요소의 다음 형제 요소를 반환
+
+const el_3 = document.querySelector('.child')
+console.log(el_3.previousElementSibling)
+console.log(el_3.nextElementSibling)
+
+// 요소.children - 요소의 모든 자식 요소를 반환
+// 요소.firstElementChild - 요소의 첫 번째 자식 요소를 반환
+// 요소.lastElementChild - 요소의 마지막 자식 요소를 반환
+
+const el_4 = document.querySelector('.parent')
+console.log(el_4.children)
+console.log(el_4.children[el_4.children.length - 1])
+console.log(el_4.firstElementChild)
+console.log(el_4.lastElementChild)
