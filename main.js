@@ -1571,6 +1571,46 @@ keys.forEach(key => {
   document.body.append(el)
 })
 
+// Object.values() - 객체의 모든 값을 배열로 만든다
+// 순서는 보장되지않는다
+
+const user_12 = {
+  name: 'Neo',
+  age: 85,
+  email: 'neo@heropy.dev',
+  isValid: true
+}
+const values = Object.values(user_12)
+console.log(values)
+
 // 04-13 - 표준 내장 객체 - JSON
 console.log('** 04-13 - 표준 내장 객체 - JSON **')
 
+// JSON(JavaScript Object Notation)은 데이터 전달을 위한 표준 데이터 포맷
+// 문자, 숫자, 불리, null, 객체, 배열만 사용가능!
+// 문자는 큰 따옴표만 사용가능!
+// 후행 쉼표사용 불가!
+// '.json' 확장자의 파일 사용가능
+
+const user_13 = {
+  name: 'Neo',
+  age: 85,
+  isValid: true,
+  emails: ['neo@heropy.dev', 'thesecon@gmail.com'], // 후행 쉼표
+}
+const json = JSON.stringify(user_13)
+console.log(json)
+console.log(JSON.parse(json))
+// const json = {
+//   "name": "Neo",
+//   "age": 85,
+//   "isValid": true,
+//   "emails": ["neo@heropy.dev", "thesecon@gmail.com"]
+// }
+
+fetch('https://api.heropy.dev/v0/users', {
+  method: 'POST',
+  body: JSON.stringify(user_13)
+})
+  .then(res => res.json())
+  .then(res => console.log(res))

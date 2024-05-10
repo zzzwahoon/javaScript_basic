@@ -1,0 +1,6 @@
+{
+  "name": "Neo",
+  "age": 85,
+  "isValid": true,
+  "emails": ["neo@heropy.dev", "thesecon@gmail.com"]
+}
