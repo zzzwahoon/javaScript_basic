@@ -667,11 +667,11 @@ h1El_7.addEventListener('click', function () {
 // ** 선언과 표현, 호이스팅 **
 console.log('논리 연산자')
 // 호이스팅(Hoisting)
-hello()   // OK!
+hello_2()   // OK!
 // world()   // Error..
 
 // 함수 선언문(Declaration)
-function hello() {
+function hello_2() {
   console.log('Hello~')
 }
 // 함수 표현식(Expression)
@@ -1951,3 +1951,33 @@ console.log(childEl_5.offsetWidth, childEl_5.offsetHeight)
 
 console.log(parentEl_5.scrollWidth, parentEl_5.scrollHeight) 
 console.log(childEl_5.scrollWidth, childEl_5.scrollHeight)
+
+// 06-01 - 이벤트 - 이벤트 추가 및 제거
+console.log('** 06-01 - 이벤트 - 이벤트 추가 및 제거 **')
+
+// 대상.addEventListener(이벤트종류, 핸들러) - 대상에서 청취(Listen)할 이벤트 종류와 이벤트가 발생했을 때 호출할 콜백(Handler)을 등록한다
+
+const parentEl_6 = document.querySelector('.parent_11')
+const childEl_6 = document.querySelector('.child_11')
+
+parentEl_6.addEventListener('click', () => {
+  console.log('Parent!')
+})
+childEl_6.addEventListener('click', () => {
+  console.log('Child!')
+})
+
+// 대상.removeEventListner(이벤트종류, 핸들러)
+// - 대상에 등록했던 이벤트 핸들러를 제거한다
+
+const parentEl_7 = document.querySelector('.parent_12')
+const childEl_7 = document.querySelector('.child_12')
+
+const handler_2 = () => {
+  console.log('Parent!')
+}
+
+parentEl_7.addEventListener('click', handler_2)
+childEl_7.addEventListener('click', () => {
+  parentEl_7.removeEventListener('click', handler_2)
+})
