@@ -1981,3 +1981,22 @@ parentEl_7.addEventListener('click', handler_2)
 childEl_7.addEventListener('click', () => {
   parentEl_7.removeEventListener('click', handler_2)
 })
+
+// 06-02 - 이벤트 - 이벤트 객체
+console.log('** 06-02 - 이벤트 - 이벤트 객체 **')
+
+// .addEventListener() 핸들러의 첫 매개변수로, 발생한 이벤트의 정보를 가진 객체를 전달
+
+const parentEl_8 = document.querySelector('.parent_13')
+
+parentEl_8.addEventListener('click', event => {
+  console.log(parentEl_8)
+  console.log(event.target)
+})
+
+const inputEl_8 = document.querySelector('.input_6')
+inputEl_8.addEventListener('keydown', event => {
+  console.log(event.key)
+  console.log(inputEl_8.value)
+  console.log(event.target.value)
+})

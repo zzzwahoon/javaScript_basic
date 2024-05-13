@@ -22,7 +22,7 @@ body {
   font-size: 50px;
 }
 
-.parent_11, .parent_12 {
+.parent_11, .parent_12, .parent_13 {
   width: 400px;
   height: 200px;
   margin: 40px;
@@ -31,7 +31,7 @@ body {
   border: 10px solid;
   background-color: red;
 }
-.child_11, .child_12 {
+.child_11, .child_12, .child_13 {
   width: 300px;
   height: 100px;
   margin-bottom: 20px;
