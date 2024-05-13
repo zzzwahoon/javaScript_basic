@@ -1734,7 +1734,7 @@ console.log(res3)
 
 const el_5 = document.querySelector('.child')
 console.log(el_5)
-el_5.remove()
+// el_5.remove()
 
 // 노드.contains(노드) - 주어진 노드가 대상 노드를 포함한 후손인지 확인
 
@@ -1753,6 +1753,54 @@ console.log(childEl.contains(document.body))
 // 05-04 - 생성,조회,수정 2
 console.log('** 05-04 - 생성,조회,수정 2 **')
 
+// 노드,textContent - 노드의 모든 텍스트를 확인(Get)하거나 지정(Set)
+// Get
+const el_6 = document.querySelector('.child_2')
+console.log(el_6.textContent)
+// Set
+el_6.textContent = '오렌지'
+console.log(el_6.textContent)
+
+// 요소, innerHTML - 요소의 내부 HTML을 확인(Get)하거나 지정(Set) 합니다
+// Get (내용을 확인)
+const el_7 = document.querySelector('.parent_2')
+console.log(el_7.innerHTML)
+// Set (지정)
+el_7.innerHTML = '<div class="child" style="font-size: 100px; color: red;">두리안</div>'
+console.log(el_7.innerHTML)
+
+// 요소, dataset - 요소의 'data-' 속성을 확인(Get)하거나 지정(Set)한다
+const el_8 = document.querySelector('.child_3')
+const str = 'Hello world!'
+const num_2 = 123
+const obj_2 = { a: 1, b: 2}
+
+console.log(el_8.dataset)
+
+el_8.dataset.helloworld = str
+el_8.dataset.number = num_2
+el_8.dataset.object = JSON.stringify(obj_2)
+
+console.log(el_8.dataset)
+
+console.log(el_8.dataset.helloworld)
+console.log(el_8.dataset.number)
+console.log(JSON.parse(el_8.dataset.number))
+console.log(el_8.dataset.object)
+console.log(JSON.parse(el_8.dataset.object))
+
+const user_14 = [
+  { name: 'Neo', age: 22},
+  { name: 'Evan', age: 48},
+  { name: 'Lewis', age: 7},
+]
+const userEls = user_14.map(user => {
+  const divEl = document.createElement('div')
+  divEl.textContent = user.name
+  divEl.dataset.age = user.age
+  return divEl
+})
+document.querySelector('.parent_4').append(...userEls)
 
 // 05-04 - 생성,조회,수정 3
 console.log('** 05-04 - 생성,조회,수정 3 **')
