@@ -2059,3 +2059,38 @@ childEl_9.addEventListener('click', event => {
 window.addEventListener('click', () => {
   tooltipEl.classList.remove('active')
 })
+
+// 06-05 - 이벤트 - 이벤트 캡처링
+console.log('** 06-05 - 이벤트 - 이벤트 캡처링 **')
+
+// .addEventListner(이벤트종류, 이벤트핸들러, 옵션)
+// { capture: true } - 이벤트 캡쳐를 활성화합니다.
+
+
+const parentEl_11 = document.querySelector('.parent_17')
+const childEl_10 = document.querySelector('.child_17')
+const anchorEl_3 = document.querySelector('.child_17 a')
+
+window.addEventListener('click', () => {
+  console.log('Window!')
+})
+document.documentElement.addEventListener('click', () => {
+  console.log('HTML!')
+})
+document.body.addEventListener('click', () => {
+  console.log('Body!')
+}, {
+  capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
+})
+parentEl_11.addEventListener('click', event => {
+  console.log('Parent!')
+}, {
+  capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
+})
+childEl_10.addEventListener('click', () => {
+  console.log('Child!')
+})
+anchorEl_3.addEventListener('click', event => {
+  event.preventDefault()
+  console.log('Anchor!')
+})
