@@ -2094,3 +2094,19 @@ anchorEl_3.addEventListener('click', event => {
   event.preventDefault()
   console.log('Anchor!')
 })
+
+// 06-06 - 이벤트 - 한글 입력 이벤트 중복
+console.log('** 06-06 - 이벤트 - 한글 입력 이벤트 중복 **')
+
+// 브라우저 입력기(IME)의 CJK(중국어, 일본어, 한글) 문자 구성 중에는 이벤트 핸들러가 2번 실행될 수 있습니다.
+// event.isComposing - 한글 입력 중인지 여부를 확인한다
+
+const inputEl_9 = document.querySelector('.input_7')
+inputEl_9.addEventListener('keydown', event => {
+  if (event.isComposing) return
+  if (event.key === 'Enter') {
+    const h1El = document.createElement('h1')
+    h1El.textContent = inputEl_9.value
+    document.body.append(h1El)
+  }
+})
