@@ -2000,3 +2000,21 @@ inputEl_8.addEventListener('keydown', event => {
   console.log(inputEl_8.value)
   console.log(event.target.value)
 })
+
+// 06-03 - 이벤트 - 기본 동작 방지
+console.log('** 06-03 - 이벤트 - 기본 동작 방지 **')
+
+// event.preventDefault() - 이벤트의 기본 동작을 방지
+
+// <a> 태그에서 페이지 이동 방지!
+const anchorEl = document.querySelector('.child_14 a')
+anchorEl.addEventListener('click', event => {
+  event.preventDefault()
+  console.log('Click!')
+})
+
+// 마우스 휠의 스크롤 동작 방지!
+const parentEl_9 = document.querySelector('.parent_14')
+parentEl_9.addEventListener('wheel', event => {
+  event.preventDefault()
+})
