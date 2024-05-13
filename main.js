@@ -1804,3 +1804,78 @@ document.querySelector('.parent_4').append(...userEls)
 
 // 05-04 - 생성,조회,수정 3
 console.log('** 05-04 - 생성,조회,수정 3 **')
+
+// 요소.classList - 요소의 'class' 속성을 제어
+// 요소.classList.add() - 값을 추가
+// 요소.classList.remove() - 값을 제거
+// 요소.classList.toggle() - 값을 토글
+// 요소.classList.contains() - 값을 확인
+
+const el_9 = document.querySelector('.child_5')
+
+el_9.classList.add('active')
+console.log(el_9.classList.contains('active'))
+
+el_9.classList.remove('active')
+console.log(el_9.classList.contains('active'))
+
+el_9.addEventListener('click', () => {
+  el_9.classList.toggle('active')
+  console.log(el_9.classList.contains('active'))
+})
+
+// 요소.style -요소의 style 속성을 확인(Get)하거나 지정(Set)합니다.
+const el_10 = document.querySelector ('.child_6')
+
+// 개별 지정할 수 있습니다.
+// el_10.style.width = '100px'
+// el_10.style.fontSize = '20px'
+// el_10.style.backgroundColor = 'green'
+// el_10.style.position = 'absolute'
+
+// 한 번에 지정할 수 있습니다.
+Object.assign(el_10.style, {
+  width: '100px', 
+  fontSize: '20px', 
+  backgroundColor: 'green', 
+  position: 'absolute'
+})
+
+console.log(el_10.style)
+console.log(el_10.style.width)
+console.log(el_10.style.fontSize)
+console.log(el_10.style.backgroundColor)
+console.log (el_10.style.position)
+
+// 요소.style - 요소의 styLe 속성을 확인(Get)하거나 지정(Set)합니다.
+const el_11 = document.querySelector('.child_7')
+el_11.style.backgroundColor = 'green'
+el_11.style.width = '100px'
+el_11.style.transition = '1s'
+
+el_11.addEventListener ('click', () => {
+const width = Number.parseInt(el_11.style.width, 10)
+el_11.style.width = `${width + 50}px`
+})
+
+// HTML 속성 - Attributes, CSS,JS 속성 - Properties
+// 요소.getAttribute(속성) - 요소의 속성을 확인합니다.
+// 요소.SetAttribute(속성, 값)- 요소에 속성과 값을 지정합니다.
+// 요소.hasAttribute(속성) - 요소에 속성이 있는지 확인합니다.
+// 요소.removeAttribute(속성) -요소에서 속성을 제거합니다.
+
+const el_12 = document.querySelector('.child_8')
+
+console.log(el_12.getAttribute('class')) 
+console.log(el_12.getAttribute('title'))
+
+el_12.setAttribute('class', 'hello world')
+el_12.setAttribute('title', 'Hello world!')
+
+console.log(el_12.hasAttribute('class')) 
+console.log(el_12.hasAttribute('title')) 
+console.log(el_12.hasAttribute('value'))
+
+el_12.removeAttribute('class')
+el_12.removeAttribute('title')
+
