@@ -2018,3 +2018,44 @@ const parentEl_9 = document.querySelector('.parent_14')
 parentEl_9.addEventListener('wheel', event => {
   event.preventDefault()
 })
+
+// 06-04 - 이벤트 - 이벤트 버블링
+console.log('** 06-04 - 이벤트 - 이벤트 버블링 **')
+
+// 이벤트(Event) / 이벤트 버블링(Event Bubbling)
+// event.stopPropagation() - 하위 요소에서 상위 요소로의 이벤트 전파(버블)를 정지
+
+const parentEl_10 = document.querySelector('.parent_15')
+const childEl_8 = document.querySelector('.child_15')
+const anchorEl_2 = document.querySelector('.child_15 a')
+
+// window.addEventListener('click', () => {
+//   console.log('Window!')
+// })
+// document.documentElement.addEventListener('click', () => {
+//   console.log('HTML!')
+// })
+// document.body.addEventListener('click', () => {
+//   console.log('Body!')
+// })
+// parentEl_10.addEventListener('click', event => {
+//   console.log('Parent!')
+//   event.stopPropagation() // 버블링 정지!
+// })
+// childEl_8.addEventListener('click', () => {
+//   console.log('Child!')
+// })
+// anchorEl_2.addEventListener('click', () => {
+//   console.log('Anchor!')
+// })
+
+const childEl_9 = document.querySelector('.child_16')
+const tooltipEl = document.querySelector('.tooltip')
+
+childEl_9.addEventListener('click', event => {
+  tooltipEl.classList.add('active')
+  event.stopPropagation()
+})
+window.addEventListener('click', () => {
+  tooltipEl.classList.remove('active')
+})

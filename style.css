@@ -1,5 +1,5 @@
 .active {
-  color: pink;
+  /* color: pink; */
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   font-size: 50px;
 }
 
-.parent_11, .parent_12, .parent_13, .parent_14 {
+.parent_11, .parent_12, .parent_13, .parent_14, .parent_15, .parent_16 {
   width: 400px;
   height: 200px;
   margin: 40px;
@@ -31,11 +31,29 @@ body {
   border: 10px solid;
   background-color: red;
 }
-.child_11, .child_12, .child_13, .child_14 {
+.child_11, .child_12, .child_13, .child_14, .child_15, .child_16 {
   width: 300px;
   height: 100px;
   margin-bottom: 20px;
   border: 10px solid;
   background-color: orange;
   font-size: 40px;
+}
+.child_16 {
+  position: relative;
+}
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  z-index: 1;
+  width: 100%;
+  padding: 10px;
+  border: 10px solid;
+  background-color: orange;
+  font-size: 22px;
+}
+.tooltip.active {
+  display: block;
 }
