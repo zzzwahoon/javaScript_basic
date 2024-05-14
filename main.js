@@ -2145,7 +2145,7 @@ parentEl_12.addEventListener('mousemove', event => {
   // console.log(event.x, event.y)
 })
 parentEl_12.addEventListener('wheel', event => {
-  console.log('Parent Wheel!')
+  // console.log('Parent Wheel!')
 })
 
 // 06-08 - 이벤트 - 키보드 이벤트
@@ -2163,4 +2163,42 @@ inputEl_10.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     console.log('ESC!')
   }
+})
+
+// 06-09 - 이벤트 - 양식과 포커스 이벤트
+console.log('** 06-09 - 이벤트 - 양식과 포커스 이벤트 **')
+
+const formEl = document.querySelector ('#login' )
+const inputEls = formEl.querySelectorAll('.input_form')
+
+inputEls.forEach(el => {
+  // focus(focusin) - 요소가 포커스를 얻었을 때
+  el.addEventListener('focus', () => {
+    formEl.classList.add('active')
+  })
+  // blur(focusout) - 요소가 포커스를 잃었을 때
+  el.addEventListener('blur', () => {
+    formEl.classList.remove('active')
+  })
+  // input - 값이 변경되었을 때 
+  // change - 상태가 변경되었을 때
+  el.addEventListener('change', event => {
+  console.log(event.target.value)
+  })
+})
+
+// submit - 제출 버튼을 선택했을 때
+formEl.addEventListener('submit', event => {
+  event.preventDefault()
+  const data = {
+  id: event.target[0].value, 
+  pw: event.target[1].value
+  }
+  // fetch('https://...')
+  console.log('서버로 체출했습니다!', data)
+})
+
+// reset - 리셋 버튼을 선택했을때
+formEl.addEventListener('reset', event => {
+  console.log('모든 값이 초기화 되었습니다!')
 })

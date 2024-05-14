@@ -81,3 +81,16 @@ body {
   border-color: royalblue;
   color: royalblue;
 }
+
+#login {
+  width: 300px;
+  padding: 20px;
+  border: 10px solid;
+  transition: .4s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#login.active {
+  border-color: royalblue;
+}
