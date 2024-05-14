@@ -2071,29 +2071,29 @@ const parentEl_11 = document.querySelector('.parent_17')
 const childEl_10 = document.querySelector('.child_17')
 const anchorEl_3 = document.querySelector('.child_17 a')
 
-window.addEventListener('click', () => {
-  console.log('Window!')
-})
-document.documentElement.addEventListener('click', () => {
-  console.log('HTML!')
-})
-document.body.addEventListener('click', () => {
-  console.log('Body!')
-}, {
-  capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
-})
-parentEl_11.addEventListener('click', event => {
-  console.log('Parent!')
-}, {
-  capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
-})
-childEl_10.addEventListener('click', () => {
-  console.log('Child!')
-})
-anchorEl_3.addEventListener('click', event => {
-  event.preventDefault()
-  console.log('Anchor!')
-})
+// window.addEventListener('click', () => {
+//   console.log('Window!')
+// })
+// document.documentElement.addEventListener('click', () => {
+//   console.log('HTML!')
+// })
+// document.body.addEventListener('click', () => {
+//   console.log('Body!')
+// }, {
+//   capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
+// })
+// parentEl_11.addEventListener('click', event => {
+//   console.log('Parent!')
+// }, {
+//   capture: true // 가장 먼저 캡쳐해서 우선적으로 동작
+// })
+// childEl_10.addEventListener('click', () => {
+//   console.log('Child!')
+// })
+// anchorEl_3.addEventListener('click', event => {
+//   event.preventDefault()
+//   console.log('Anchor!')
+// })
 
 // 06-06 - 이벤트 - 한글 입력 이벤트 중복
 console.log('** 06-06 - 이벤트 - 한글 입력 이벤트 중복 **')
@@ -2109,4 +2109,41 @@ inputEl_9.addEventListener('keydown', event => {
     h1El.textContent = inputEl_9.value
     document.body.append(h1El)
   }
+})
+
+// 06-07 - 이벤트 - 마우스와 포인터 이벤트
+console.log('** 06-07 - 이벤트 - 마우스와 포인터 이벤트 **')
+
+const parentEl_12 = document.querySelector('.parent_18')
+const childEls = document.querySelectorAll('.child_18')
+
+childEls.forEach(childEl => {
+  // click - 클릭했을 때 
+  // dblclick - 더블 클릭 했을때
+  childEl.addEventListener('click', () => {
+    childEl.classList.toggle('active')
+  })
+  
+  // contextmenu - 우클릭했을 때
+  childEl.addEventListener('contextmenu', event => {
+    event.preventDefault()
+    console.log(childEl.textContent)
+  })
+})
+
+// mousedown - 버튼을 누를 때
+// mouseup - 버튼을 땔 때
+// mouseenter - 포인터가 요소로 들어갈 때
+// mouseleave - 포인터가 요소에서 나올 때
+parentEl_12.addEventListener('mouseenter', () => {
+  parentEl_12.classList.add('active')
+})
+parentEl_12.addEventListener('mouseleave', () => {
+  parentEl_12.classList.remove('active')
+})
+parentEl_12.addEventListener('mousemove', event => {
+  // console.log(event.x, event.y)
+})
+parentEl_12.addEventListener('wheel', event => {
+  console.log('Parent Wheel!')
 })
