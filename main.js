@@ -2147,3 +2147,20 @@ parentEl_12.addEventListener('mousemove', event => {
 parentEl_12.addEventListener('wheel', event => {
   console.log('Parent Wheel!')
 })
+
+// 06-08 - 이벤트 - 키보드 이벤트
+console.log('** 06-08 - 이벤트 - 키보드 이벤트 **')
+
+const inputEl_10 = document.querySelector('.input_8')
+
+// keydown - 키를 누를떄
+// keyup - 키를 (누른후) 땔 때
+inputEl_10.addEventListener('keydown', event => {
+  console.log(event.key)
+  if (event.key === 'Enter') {
+    console.log('Enter!')
+  }
+  if (event.key === 'Escape') {
+    console.log('ESC!')
+  }
+})
