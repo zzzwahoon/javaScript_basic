@@ -2250,6 +2250,75 @@ console.log(a_da_4, rest)
 // 07-02 - 추가학습 - 객체 구조 분해 할당
 console.log('** 07-02 - 추가학습 - 객체 구조 분해 할당 **')
 
+// 구조 분해 할당(destructing assignment)
+// - 배열이나 객체의 구조에 맞게 바로 개별 변수에 값을 할당하는 방법으로,
+// 필요한 값만 추출하여 변수에 할당할 수 있다.
+
+const user_15 = {
+  name_da: 'Neo',
+  age_da: 22,
+  isValid_da: true
+}
+// const name_da = user_15.name_da
+// const age_da = user_15.age_da
+// const isValid_da = user_15.isValid_da
+const { name_da, age_da, isValid_da } = user_15
+
+console.log(name_da)
+console.log(age_da)
+console.log(isValid_da)
+
+// 선언과 분리
+const user_16 = {
+  name_da_2: 'Neo',
+  age_da_2: 22,
+  isValid_da_2: true
+}
+let name_da_2
+let age_da_2
+let isValid_da_2
+if (user_16) {
+  ;({ name_da_2, age_da_2, isValid_da_2 } = user_16)
+}
+
+console.log(name_da_2, age_da_2, isValid_da_2)
+
+// 기본값
+const user_17 = {
+  name_da_3: 'Neo',
+  age_da_3: 22,
+}
+const { isValid_da_3 = false } = user_17
+
+console.log(isValid_da_3)
+
+// 변수명 변경
+const user_18 = {
+  name_da_4: 'Neo',
+  age_da_4: 22,
+  isValid_da_4: true
+}
+const {name_da_4: n_d, age_da_4: a_d, isValid_da_4: v_d} = user_18
+console.log(n_d, a_d, v_d)
+
+// 기본값 + 변수명 변경
+const user_19 = {
+  name_da_5: 'Neo',
+  age_da_5: 22,
+}
+const {name_da_5: n_d_2, age_da_5: a_d_2, isValid_da_5: v_d_2 = false} = user_19
+
+console.log(n_d_2, a_d_2, v_d_2)
+
+// 나머지 할당
+const user_20 = {
+  name_da_6: 'Neo',
+  age_da_6: 22,
+  isValid_da_6: true
+}
+const { name_da_6, ... rest_2} = user_20
+
+console.log(name_da_6, rest_2)
 
 // 07-03 - 추가학습 - 선택적 체이닝
 console.log('** 07-03 - 추가학습 - 선택적 체이닝 **')
