@@ -2371,8 +2371,27 @@ logGreeting(neo_2)
 // 07-04 - 추가학습 - 모듈 1
 console.log('** 07-04 - 추가학습 - 모듈 1 **')
 
+import { add_6, sub_6 } from './core/calculator.js'
+import { getUserBirthYear } from './core/user.js'
+import { fruits_21, addFruit } from './core/fruits.js'
 
+console.log(add_6(2, 7))
+console.log(sub_6(2, 7))
 
+const neo_3 = {
+  name: 'Neo',
+  age: 22
+}
+const lewis_3 = {
+  name: 'Lewuis',
+  age: 7
+}
+console.log(getUserBirthYear(neo_3))
+console.log(getUserBirthYear(lewis_3))
+
+addFruit('Orange')
+addFruit('Mango')
+console.log(fruits_21)
 
 // 07-05 - 추가학습 - 모듈 2
 console.log('** 07-05 - 추가학습 - 모듈 2 **')
