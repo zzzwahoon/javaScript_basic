@@ -119,3 +119,52 @@ console.log(neo_5.fullName)
 neo_5.fullName = 'Lewis Park'
 
 console.log(neo_5)
+
+// 08-03 - 클래스 - 정적 메소드
+console.log('**** 08-03 - 클래스 - 정적 메소드 ****')
+
+// 클래스 - 정적 메소드(Static method)
+// - 정적 메소드는 주로 클래스의 유틸리티(보조) 함수를 만들 때 사용
+// - 인스턴스와는 연결되지 않으며, 클래스 자체에서 호출해야 한다
+
+const fruits = new Array('Apple', 'Banana', 'Cherry')
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// fruits.includes('Apple')
+// fruits.filter(item => item)
+// fruits.push('Orange')
+Array.prototype.abc = function () {
+  console.log(this)
+  return this.map(item => item.slice(0, 1).toLowerCase())
+}
+
+const newFruits = fruits.abc()
+console.log(newFruits)
+console.log(Array.isArray(fruits))
+console.log(Array.isArray(newFruits))
+
+const user = { name: 'Neo' }
+console.log(Array.isArray(user))
+
+console.log(['Orange', 'Mango'].abc())
+
+class User_5 {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  static isUser(user) {
+    return user instanceof User_5
+  }
+}
+
+const neo_6 = new User_5('Neo', 'Park')
+const evan_6 = new User_5('Evan', 'Yang')
+const lewis_6 = {
+  name: 'Lewis Lee',
+  age: 72
+}
+
+console.log(User_5.isUser(neo_6))
+console.log(User_5.isUser(evan_6))
+console.log(User_5.isUser(lewis_6))
