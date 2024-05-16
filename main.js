@@ -2396,5 +2396,13 @@ console.log(fruits_21)
 // 07-05 - 추가학습 - 모듈 2
 console.log('** 07-05 - 추가학습 - 모듈 2 **')
 
+import abc, { apple, banana, c_m, D_m } from './module.js'
+import * as xyz from './module.js'
 
 
+console.log(abc)
+console.log(apple, banana)
+console.log(c_m)
+console.log(D_m)
+console.log(xyz)
+console.log(xyz.apple)
