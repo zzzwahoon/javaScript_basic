@@ -74,3 +74,48 @@ console.log(neo_3.getBrithYear_3())
 console.log(evan_3.getBrithYear_3())
 console.log(lewis_3.getBrithYear_3())
 console.log(neo_3.getBrithYear_3 === evan_3.getBrithYear_3)
+
+// 08-02 - 클래스 - Getter & Setter
+console.log('**** 08-02 - 클래스 - Getter & Setter ****')
+
+class User_3 {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+    this.fullName = `${first} ${last}`
+  }
+}
+
+const neo_4 = new User_3('Neo', 'Park')
+
+// get
+console.log(neo_4.fullName)
+// set
+neo_4.fullName = 'Lewis Park'
+
+console.log(neo_4)
+
+// full name 값을 지정할때 firstName, lastName 자동으로 적용
+class User_4 {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+  set fullName(value) {
+    const names = value.split(' ')
+    this.firstName = names[0]
+    this.lastName = names[1]
+  }
+}
+
+const neo_5 = new User_4('Neo', 'Park')
+
+// get
+console.log(neo_5.fullName)
+// set
+neo_5.fullName = 'Lewis Park'
+
+console.log(neo_5)
