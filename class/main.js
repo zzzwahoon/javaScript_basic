@@ -168,3 +168,73 @@ const lewis_6 = {
 console.log(User_5.isUser(neo_6))
 console.log(User_5.isUser(evan_6))
 console.log(User_5.isUser(lewis_6))
+
+// 08-04 - 클래스 - 상속
+console.log('**** 08-04 - 클래스 - 상속 ****')
+
+// 클래스 - 상속(Inheritance)
+// - 클래스의 속성과 메소드를 다른 클래스에게 확장(Extends)해 재사용하는 기능을 말한다
+
+class A {
+  constructor(a) {
+    this.a = a
+  }
+}
+class B extends A { // A 클래스를 상속받아서 B 클래스에서 사용
+  constructor(a, b) {
+    super(a)
+    this.b = b
+  }
+}
+
+const a = new A(1)
+const b = new B(1, 2)
+
+console.log(a)
+console.log(b)
+
+console.log(a instanceof A)
+console.log(b instanceof A)
+
+console.log(a instanceof B)
+console.log(b instanceof B)
+
+console.log(a instanceof Object)
+console.log(b instanceof Object)
+
+class User_6 {
+  constructor(name) {
+    this.name = name
+  }
+  getName() {
+    return this.name
+  }
+}
+class Guest extends User_6 {
+  constructor(name) {
+    super(name)
+  }
+}
+class Member extends User_6 {
+  constructor(name) {
+    super(name)
+    this.private = true
+  }
+  getPrivate() {
+    return this.private
+  }
+}
+class Admin extends Member {
+  constructor(name) {
+    super(name)
+    this.admin = true
+  }
+}
+
+const neo_7 = new Guest('Neo')
+const evan_7 =  new Member('Evan')
+const lewis_7 = new Admin('Lewis')
+
+console.log(neo_7)
+console.log(evan_7.getPrivate())
+console.log(lewis_7)
