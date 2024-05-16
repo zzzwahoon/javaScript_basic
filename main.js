@@ -2202,3 +2202,63 @@ formEl.addEventListener('submit', event => {
 formEl.addEventListener('reset', event => {
   console.log('모든 값이 초기화 되었습니다!')
 })
+
+// 07-01 - 추가학습 - 배열 구조 분해 할당
+console.log('** 07-01 - 추가학습 - 배열 구조 분해 할당 **')
+
+// 구조 분해 할당(destructing assignment)
+// - 배열이나 객체의 구조에 맞게 바로 개별 변수에 값을 할당하는 방법으로,
+// 필요한 값만 추출하여 변수에 할당할 수 있다.
+
+const numbers_18 = [1, 2, 3]
+// const a_da = numbers_18[0]
+// const b_da = numbers_18[1]
+// const c_da = numbers_18[2]
+const [a_da, b_da, c_da] = numbers_18
+
+console.log(a_da, b_da, c_da)
+
+// 선언과 분리
+const numbers_19 = [1, 2, 3]
+let a_da_2  // undefined
+let b_da_2  // undefined
+let c_da_2  // undefined
+if (numbers_19.length) {
+  [a_da_2, b_da_2, c_da_2] = numbers_19
+}
+
+console.log(a_da_2, b_da_2, c_da_2)
+
+// 기본값
+const numbers_20 = [, , 3]
+const [a_da_3 = 0, b_da_3, c_da_3] = numbers_20
+
+console.log(a_da_3, b_da_3, c_da_3)
+
+// 반환 값 무시
+const numbers_21 = [1, 2, 3]
+const [, , c_da_4] = numbers_21
+
+console.log(c_da_4)
+
+// 나머지 할당
+const numbers_22 = [1, 2, 3]
+const [a_da_4, ...rest] = numbers_22
+
+console.log(a_da_4, rest)
+
+// 07-02 - 추가학습 - 객체 구조 분해 할당
+console.log('** 07-02 - 추가학습 - 객체 구조 분해 할당 **')
+
+
+// 07-03 - 추가학습 - 선택적 체이닝
+console.log('** 07-03 - 추가학습 - 선택적 체이닝 **')
+
+
+// 07-04 - 추가학습 - 모듈 1
+console.log('** 07-04 - 추가학습 - 모듈 1 **')
+
+
+// 07-05 - 추가학습 - 모듈 2
+console.log('** 07-05 - 추가학습 - 모듈 2 **')
+
