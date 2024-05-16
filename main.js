@@ -2323,11 +2323,59 @@ console.log(name_da_6, rest_2)
 // 07-03 - 추가학습 - 선택적 체이닝
 console.log('** 07-03 - 추가학습 - 선택적 체이닝 **')
 
+// 선택적 체이닝(Optional Chaining)
+// ?. - 대괄호 혹은 점 표기법의 대상이 null 혹인 undefined인 경우, 에러 대신 undefined을 반환
+
+console.log(null?.abc)
+console.log(undefined?.abc)
+
+const el_13 = document.querySelector('.h1_oc')
+console.log(el_13?.textContent)
+
+// const numbers_23 = [1, 2, 3]
+const numbers_23 = null
+console.log(numbers_23?.[0])
+
+// const user_21 = {
+//   name: 'Neo',
+//   age: 22
+// }
+const user_21 = null
+console.log(user_21?.name)
+
+const evan_2 = {
+  name: 'Evan',
+  address: {
+    country: 'Korea',
+    city: 'Seoul'
+  },
+  greet() {
+    return `Hello, ${this.name}`
+  }
+}
+const neo_2 = {
+  name: 'neo'
+}
+
+function logCity(user) {
+  console.log(user.address?.city || '주소가 없어요!')
+}
+function logGreeting(user) {
+  console.log(user.greet?.())
+}
+logCity(evan_2)
+logCity(neo_2)
+logGreeting(evan_2)
+logGreeting(neo_2)
 
 // 07-04 - 추가학습 - 모듈 1
 console.log('** 07-04 - 추가학습 - 모듈 1 **')
 
 
+
+
 // 07-05 - 추가학습 - 모듈 2
 console.log('** 07-05 - 추가학습 - 모듈 2 **')
+
+
 
