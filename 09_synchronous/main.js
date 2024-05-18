@@ -194,8 +194,8 @@ console.log('**** 09-03 - 비동기 - promise ****')
 //   })
 //////
 
-  // 09-04 - 비동기 - Async & Await
-console.log('**** 09-04 - 비동기 - Async & Await ****')
+// 09-04/05 - 비동기 - Async & Await 1,2
+console.log('**** 09-04/05 - 비동기 - Async & Await 1,2 ****')
 
 const h1El = document.querySelector('h1')
 const ulEl = document.createElement('ul')
@@ -228,7 +228,11 @@ document.body.append(ulEl)
 
 // async & await 사용으로 수정
 h1El.addEventListener('click', async () => {
-  ulEl.textContent = 'Loading...'
+  // ulEl.textContent = 'Loading...'
+  const loaderEl = document.createElement('div')
+  loaderEl.classList.add('loader')
+  ulEl.innerHTML = ''
+  ulEl.append(loaderEl)
   const res = await fetch('https://api.heropy.dev/v0/users')
   const data = await res.json()
   console.log(data)
@@ -236,14 +240,34 @@ h1El.addEventListener('click', async () => {
   const liEls = users.map(user => {
     const liEl = document.createElement('li')
     liEl.textContent = user.name
-    const imgEl = document.createElement('img')
-    imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
+    // const imgEl = document.createElement('img')
+    // imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
+    liEl.dataset.photo = user.photo?.url || 'https://heropy.dev/favicon.png'
     if (!user.photo) {
       liEl.classList.add('no-photo')
     }
-    liEl.prepend(imgEl)
+    const loaderEl = document.createElement('div')
+    loaderEl.classList.add('loader')
+    liEl.prepend(loaderEl)
     return liEl
   })
-  ulEl.textContent = ''
+  // ulEl.textContent = ''
+  loaderEl.remove()
   ulEl.append(...liEls)
+  liEls.forEach(async liEl => {
+    const imgEl = await loadImage(liEl.dataset.photo)
+    liEl.prepend(imgEl)
+    liEl.querySelector('.loader').remove()
+  })
 })
+
+function loadImage(src) {
+  return new Promise (reseolve => {
+    const imgEl = document.createElement('img')
+    imgEl.src = src
+    imgEl.addEventListener('load', () => {
+      reseolve(imgEl)
+    })
+  })
+}
+
