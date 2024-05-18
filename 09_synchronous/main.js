@@ -390,15 +390,17 @@ console.log('**** 09-07 - 비동기 - 이행과 거부, 예외 처리 2 ****')
 //     console.log('DONE!')
 //   }
 // })()
+//////
 
 // 09-08 - 비동기 - 네트워크 통신을 위한 fetch 함수
 console.log('**** 09-08 - 비동기 - 네트워크 통신을 위한 fetch 함수 ****')
 
 // 네트워크 통신과 fetch 함수
 
-fetch('https://api.heropy.dev/v0/users')
-  .then((res) => res.json())
-  .then((data) => console.log(data))
+// fetch('https://api.heropy.dev/v0/users')
+//   .then((res) => res.json())
+//   .then((data) => console.log(data))
+//////
 
 //           요청(request)
 // 클라이언트 ----------------> 서버
@@ -450,17 +452,47 @@ fetch('https://api.heropy.dev/v0/users')
 // options.method: 요청 종류(GET, POST, PUT, DELETE 등)
 // options.headers: 요청 메타 정보
 // options.body: 요청 데이터
-fetch('https://api.heropy.dev/v0/users', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: 'HEROPY',
-    age: 85,
-    isValid: true,
-    emails: ['thesecon@gmail.com']
-  })
-})
-  .then((res) => res.json())
-  .then((data) => console.log(data))
+
+// fetch('https://api.heropy.dev/v0/users', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     name: 'HEROPY',
+//     age: 85,
+//     isValid: true,
+//     emails: ['thesecon@gmail.com']
+//   })
+// })
+//   .then((res) => res.json())
+//   .then((data) => console.log(data))
+//////
+
+// 09-09 - 비동기 - 반복문에서 비동기 처리
+console.log('**** 09-09 - 비동기 - 반복문에서 비동기 처리 ****')
+
+async function getMovies(movieName) {
+  const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+  return await res.json()
+}
+
+const titles = ['frozen', 'avengers', 'avatar']
+
+//// 배열 메소드 반복
+// 순서 보장 X
+// titles.forEach(async (title, index) => {
+//   const movies = await getMovies(title)
+//   console.log(`${index + 1}) ${title}`, movies)
+// });
+
+//// for 반복문
+// 순서 보장 O
+;(async () => {
+  let index = 1
+  for (const title of titles) {
+    const movies = await getMovies(title)
+    console.log(`${index}) ${title}`, movies)
+    index += 1
+  }
+})()
