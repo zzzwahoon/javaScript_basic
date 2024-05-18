@@ -272,63 +272,121 @@ document.body.append(ulEl)
 // }
 
 // 09-06 - 비동기 - 이행과 거부, 예외 처리 1
+console.log('**** 09-06 - 비동기 - 이행과 거부, 예외 처리 1 ****')
 
 // 예외 처리
-console.log('**** 09-06 - 비동기 - 이행과 거부, 예외 처리 1 ****')
-h1El.addEventListener('click', async () => {
-  // ulEl.textContent = 'Loading...'
-  const loaderEl = document.createElement('div')
-  loaderEl.classList.add('loader')
-  ulEl.innerHTML = ''
-  ulEl.append(loaderEl)
-  try {
-    const res = await fetch('https://api.heropy.dev/v0/users')
-    const data = await res.json()
-    console.log(data)
-    const { users } = data
-    const liEls = users.map(user => {
-      const liEl = document.createElement('li')
-      liEl.textContent = user.name
-      // const imgEl = document.createElement('img')
-      // imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
-      liEl.dataset.photo = user.photo?.url || 'https://heropy.dev/favicon.png'
-      if (!user.photo) {
-        liEl.classList.add('no-photo')
-      }
-      const loaderEl = document.createElement('div')
-      loaderEl.classList.add('loader')
-      liEl.prepend(loaderEl)
-      return liEl
-    })
-    // ulEl.textContent = ''
-    loaderEl.remove()
-    ulEl.append(...liEls)
-    liEls.forEach(async liEl => {
-      try {
-        const imgEl = await loadImage(liEl.dataset.photo)
-        liEl.prepend(imgEl)
-      } catch (error) {
-        console.log(error)
-      } finally {
-        liEl.querySelector('.loader').remove()
-      }
-    })
-  } catch (error) {
-    console.log(error)
-    ulEl.textContent = '사용자 정보를 찾을 수 없어요...'
-    loaderEl.remove()
-  }
-})
+// h1El.addEventListener('click', async () => {
+//   // ulEl.textContent = 'Loading...'
+//   const loaderEl = document.createElement('div')
+//   loaderEl.classList.add('loader')
+//   ulEl.innerHTML = ''
+//   ulEl.append(loaderEl)
+//   try {
+//     const res = await fetch('https://api.heropy.dev/v0/users')
+//     const data = await res.json()
+//     console.log(data)
+//     const { users } = data
+//     const liEls = users.map(user => {
+//       const liEl = document.createElement('li')
+//       liEl.textContent = user.name
+//       // const imgEl = document.createElement('img')
+//       // imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
+//       liEl.dataset.photo = user.photo?.url || 'https://heropy.dev/favicon.png'
+//       if (!user.photo) {
+//         liEl.classList.add('no-photo')
+//       }
+//       const loaderEl = document.createElement('div')
+//       loaderEl.classList.add('loader')
+//       liEl.prepend(loaderEl)
+//       return liEl
+//     })
+//     // ulEl.textContent = ''
+//     loaderEl.remove()
+//     ulEl.append(...liEls)
+//     liEls.forEach(async liEl => {
+//       try {
+//         const imgEl = await loadImage(liEl.dataset.photo)
+//         liEl.prepend(imgEl)
+//       } catch (error) {
+//         console.log(error)
+//       } finally {
+//         liEl.querySelector('.loader').remove()
+//       }
+//     })
+//   } catch (error) {
+//     console.log(error)
+//     ulEl.textContent = '사용자 정보를 찾을 수 없어요...'
+//     loaderEl.remove()
+//   }
+// })
 
+// function loadImage(src) {
+//   return new Promise ((resolve, reject) => {
+//     const imgEl = document.createElement('img')
+//     imgEl.src = src
+//     imgEl.addEventListener('load', () => {
+//       resolve(imgEl)
+//     })
+//     imgEl.addEventListener('error', () => {
+//       reject(new Error('이미지를 로드할 수 없어요...'))
+//     })
+//   })
+// }
+
+// 09-07 - 비동기 - 이행과 거부, 예외 처리 2
+console.log('**** 09-07 - 비동기 - 이행과 거부, 예외 처리 2 ****')
+
+//// 매개변수
+// resolve - 약속을 이행하는 함수(정상 처리)
+// reject - 약속을 거부 하는 함수(에러 사항)
+
+//// 용어 정리!
+// pending - 약속이 이행되거나 거부되기 전 상태
+// fulfilled - 약속이 이행된 상태
+// rejected - 약속이 거부된 상태
 function loadImage(src) {
-  return new Promise ((resolve, reject) => {
+  // pending..
+  return new Promise((resolve, reject) => {
+    if (!src) {
+      reject(new Error('이미지 경로가 필요해요!')) // rejected!
+    }
     const imgEl = document.createElement('img')
     imgEl.src = src
     imgEl.addEventListener('load', () => {
-      resolve(imgEl)
+      resolve(imgEl) // fulfilled!
     })
     imgEl.addEventListener('error', () => {
-      reject(new Error('이미지를 로드할 수 없어요...'))
+      reject(new Error('이미지를 불러올 수 없어요!')) // rejected!
     })
   })
 }
+
+//// .then() / .catch() / .finally()
+// - 약속이 이행되었을 때 호출(then)하거나
+// - 약속이 거부되었을 때 호출(catch)하거나
+// - 이행 및 거부와 상관없이 항상 호출(finally)하는 메소드를 제공할 수 있다.
+loadImage('https://picsum.photo/300')
+  .then(imgEl => {  // 약속이 이행 되었을때 코드
+    document.body.append(imgEl)
+  })
+  .catch(error => { // 약속이 거부되었을때 코드
+    console.log(error.message)
+  })
+  .finally(() => {  // 약속의 이행, 거부와 상관없이 실행되는 코드
+    console.log('Done!')
+  })
+
+//// try / catch / finally
+// - 에러(예외)가 발생할 수 있는 코드의 실행을 시도(try)하고,
+// - 에러가 발생하면 시도를 종료해 에러를 잡아내며(catch),
+// - 에러 여부와 상관없이 항상 실행(finally)하는 코드를 정의할 수 있다.
+;(async () => {
+  try {
+    const imgEl = await loadImage('https://picsum.photo/300')
+    document.body.append(imgEl)
+  } catch (error) {
+    console.log(error.message)
+  } finally {
+    console.log('DONE!')
+  }
+})()
