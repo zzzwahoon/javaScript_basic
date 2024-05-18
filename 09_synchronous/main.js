@@ -340,53 +340,127 @@ console.log('**** 09-07 - 비동기 - 이행과 거부, 예외 처리 2 ****')
 // resolve - 약속을 이행하는 함수(정상 처리)
 // reject - 약속을 거부 하는 함수(에러 사항)
 
-//// 용어 정리!
-// pending - 약속이 이행되거나 거부되기 전 상태
-// fulfilled - 약속이 이행된 상태
-// rejected - 약속이 거부된 상태
-function loadImage(src) {
-  // pending..
-  return new Promise((resolve, reject) => {
-    if (!src) {
-      reject(new Error('이미지 경로가 필요해요!')) // rejected!
-    }
-    const imgEl = document.createElement('img')
-    imgEl.src = src
-    imgEl.addEventListener('load', () => {
-      resolve(imgEl) // fulfilled!
-    })
-    imgEl.addEventListener('error', () => {
-      reject(new Error('이미지를 불러올 수 없어요!')) // rejected!
-    })
-  })
-}
+// //// 용어 정리!
+// // pending - 약속이 이행되거나 거부되기 전 상태
+// // fulfilled - 약속이 이행된 상태
+// // rejected - 약속이 거부된 상태
+// function loadImage(src) {
+//   // pending..
+//   return new Promise((resolve, reject) => {
+//     if (!src) {
+//       reject(new Error('이미지 경로가 필요해요!')) // rejected!
+//     }
+//     const imgEl = document.createElement('img')
+//     imgEl.src = src
+//     imgEl.addEventListener('load', () => {
+//       resolve(imgEl) // fulfilled!
+//     })
+//     imgEl.addEventListener('error', () => {
+//       reject(new Error('이미지를 불러올 수 없어요!')) // rejected!
+//     })
+//   })
+// }
 
-//// .then() / .catch() / .finally()
-// - 약속이 이행되었을 때 호출(then)하거나
-// - 약속이 거부되었을 때 호출(catch)하거나
-// - 이행 및 거부와 상관없이 항상 호출(finally)하는 메소드를 제공할 수 있다.
-loadImage('https://picsum.photo/300')
-  .then(imgEl => {  // 약속이 이행 되었을때 코드
-    document.body.append(imgEl)
-  })
-  .catch(error => { // 약속이 거부되었을때 코드
-    console.log(error.message)
-  })
-  .finally(() => {  // 약속의 이행, 거부와 상관없이 실행되는 코드
-    console.log('Done!')
-  })
+// //// .then() / .catch() / .finally()
+// // - 약속이 이행되었을 때 호출(then)하거나
+// // - 약속이 거부되었을 때 호출(catch)하거나
+// // - 이행 및 거부와 상관없이 항상 호출(finally)하는 메소드를 제공할 수 있다.
+// loadImage('https://picsum.photo/300')
+//   .then(imgEl => {  // 약속이 이행 되었을때 코드
+//     document.body.append(imgEl)
+//   })
+//   .catch(error => { // 약속이 거부되었을때 코드
+//     console.log(error.message)
+//   })
+//   .finally(() => {  // 약속의 이행, 거부와 상관없이 실행되는 코드
+//     console.log('Done!')
+//   })
 
-//// try / catch / finally
-// - 에러(예외)가 발생할 수 있는 코드의 실행을 시도(try)하고,
-// - 에러가 발생하면 시도를 종료해 에러를 잡아내며(catch),
-// - 에러 여부와 상관없이 항상 실행(finally)하는 코드를 정의할 수 있다.
-;(async () => {
-  try {
-    const imgEl = await loadImage('https://picsum.photo/300')
-    document.body.append(imgEl)
-  } catch (error) {
-    console.log(error.message)
-  } finally {
-    console.log('DONE!')
-  }
-})()
+// //// try / catch / finally
+// // - 에러(예외)가 발생할 수 있는 코드의 실행을 시도(try)하고,
+// // - 에러가 발생하면 시도를 종료해 에러를 잡아내며(catch),
+// // - 에러 여부와 상관없이 항상 실행(finally)하는 코드를 정의할 수 있다.
+// ;(async () => {
+//   try {
+//     const imgEl = await loadImage('https://picsum.photo/300')
+//     document.body.append(imgEl)
+//   } catch (error) {
+//     console.log(error.message)
+//   } finally {
+//     console.log('DONE!')
+//   }
+// })()
+
+// 09-08 - 비동기 - 네트워크 통신을 위한 fetch 함수
+console.log('**** 09-08 - 비동기 - 네트워크 통신을 위한 fetch 함수 ****')
+
+// 네트워크 통신과 fetch 함수
+
+fetch('https://api.heropy.dev/v0/users')
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+
+//           요청(request)
+// 클라이언트 ----------------> 서버
+//         <----------------
+//           응답(response)
+
+//// 요청(request)
+// url: 요청 서버 주소
+// method: 요청 종류(GET, POST, PUT, DELETE 등)
+// headers: 요청 메타 정보
+// body: 요청 데이터
+
+//// 응답(response)
+// status: 응답 상태 코드(200, 400, 500 등)
+// headers: 응답 메타 정보
+// body: 응답 데이터
+// ok: 정상적인 처리 여부
+
+//// CRUD
+// Create: POST - 데이터 생성
+// Read: GET - 데이터 조회
+// Update: PUT(PATCH) - 데이터 수정
+// Delete: DELETE - 데이터 삭제
+
+//// URL 구조
+// https://www.heropy.dev/p/QOWqjv?key=value&a=12&b=34$h1-title
+// https:// 통신 규약(Protocol)
+// www.heropy.dev: 도메인(Domain)
+// /p/QOWqjv: 경로(path)
+// ?key=value&a=12&b=34: 쿼리(Query)
+// $h1-title: 해시(Hash)
+
+//// HTTP 상태 코드
+// 1xx: 처리중
+// 2xx: 성공
+// 3xx: 리다이렉트
+// 4xx: 클라이언트 오류
+// 5xx: 서버 오류
+
+// 200: 정상적으로 처리됨
+// 400: 잘못된 요청
+// 401: 인증 정보가 부족함
+// 403: 권환이 없음
+// 404: 찾을 수 없음
+// 500: 서버 오류
+
+//// fetch 함수
+// fetch(url, options)
+// options.method: 요청 종류(GET, POST, PUT, DELETE 등)
+// options.headers: 요청 메타 정보
+// options.body: 요청 데이터
+fetch('https://api.heropy.dev/v0/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'HEROPY',
+    age: 85,
+    isValid: true,
+    emails: ['thesecon@gmail.com']
+  })
+})
+  .then((res) => res.json())
+  .then((data) => console.log(data))
