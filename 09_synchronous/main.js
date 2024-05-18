@@ -127,7 +127,7 @@ console.log('**** 09-02 - 비동기 - 콜백과 콜백 지옥 ****')
 //   })
 //////
 
-  // 09-03 - 비동기 - promise
+// 09-03 - 비동기 - promise
 console.log('**** 09-03 - 비동기 - promise ****')
 
 // 비동기 작업의 완료나 실패 시점을 지정하고 그 겨로가를 반환할 수 있다,.
@@ -174,21 +174,76 @@ console.log('**** 09-03 - 비동기 - promise ****')
 //   })
 
 // 이미지 렌더링 좀더 확장성 생각해서 수정
-function loadImage(src) {
-  return new Promise(resolve => {
+// function loadImage(src) {
+//   return new Promise(resolve => {
+//     const imgEl = document.createElement('img')
+//     imgEl.src = src
+//     imgEl.addEventListener('load', () => {
+//       resolve(imgEl)
+//     })
+//   })
+// }
+// loadImage('https://picsum.photos/3000/2000')
+//   .then((imgEl) => {
+//     document.body.append(imgEl)
+//     console.log('Done!')
+//   })
+// loadImage('https://picsum.photos/100/200')
+//   .then((imgEl) => {
+//     console.log(imgEl)
+//   })
+//////
+
+  // 09-04 - 비동기 - Async & Await
+console.log('**** 09-04 - 비동기 - Async & Await ****')
+
+const h1El = document.querySelector('h1')
+const ulEl = document.createElement('ul')
+ulEl.classList.add('users')
+document.body.append(ulEl)
+
+// .then 사용
+// h1El.addEventListener('click', () => {
+//   ulEl.textContent = 'Loading...'
+//   fetch('https://api.heropy.dev/v0/users')
+//     .then(res => res.json())
+//     .then(data => {
+//       console.log(data)
+//       const { users } = data
+//       const liEls = users.map(user => {
+//         const liEl = document.createElement('li')
+//         liEl.textContent = user.name
+//         const imgEl = document.createElement('img')
+//         imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
+//         if (!user.photo) {
+//           liEl.classList.add('no-photo')
+//         }
+//         liEl.prepend(imgEl)
+//         return liEl
+//       })
+//       ulEl.textContent = ''
+//       ulEl.append(...liEls)
+//     })
+// })
+
+// async & await 사용으로 수정
+h1El.addEventListener('click', async () => {
+  ulEl.textContent = 'Loading...'
+  const res = await fetch('https://api.heropy.dev/v0/users')
+  const data = await res.json()
+  console.log(data)
+  const { users } = data
+  const liEls = users.map(user => {
+    const liEl = document.createElement('li')
+    liEl.textContent = user.name
     const imgEl = document.createElement('img')
-    imgEl.src = src
-    imgEl.addEventListener('load', () => {
-      resolve(imgEl)
-    })
+    imgEl.src = user.photo?.url || 'https://heropy.dev/favicon.png'
+    if (!user.photo) {
+      liEl.classList.add('no-photo')
+    }
+    liEl.prepend(imgEl)
+    return liEl
   })
-}
-loadImage('https://picsum.photos/3000/2000')
-  .then((imgEl) => {
-    document.body.append(imgEl)
-    console.log('Done!')
-  })
-loadImage('https://picsum.photos/100/200')
-  .then((imgEl) => {
-    console.log(imgEl)
-  })
+  ulEl.textContent = ''
+  ulEl.append(...liEls)
+})
