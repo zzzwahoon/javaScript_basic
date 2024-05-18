@@ -99,29 +99,96 @@ console.log('**** 09-02 - 비동기 - 콜백과 콜백 지옥 ****')
 // })
 
 // 콜백지옥 수정
-function renderImage() {
-  return new Promise((callback) => {
+// function renderImage() {
+//   return new Promise((callback) => {
+//     const imgEl = document.createElement('img')
+//     imgEl.src = 'https://picsum.photos/3000/2000'
+//     imgEl.addEventListener('load', () => {
+//       document.body.append(imgEl)
+//       callback()
+//     })
+//   })
+// }
+// renderImage()
+//   .then(() => {
+//     console.log('Done 1')
+//     return renderImage()
+//   })
+//   .then(() => {
+//     console.log('Done 2')
+//     return renderImage()
+//   })
+//   .then(() => {
+//     console.log('Done 3')
+//     return renderImage()
+//   })
+//   .then(() => {
+//     console.log('Done 4')
+//   })
+//////
+
+  // 09-03 - 비동기 - promise
+console.log('**** 09-03 - 비동기 - promise ****')
+
+// 비동기 작업의 완료나 실패 시점을 지정하고 그 겨로가를 반환할 수 있다,.
+// const promise = new Promis((resolve, reject) => {})
+// promise.then(() => {})
+
+// promise 함수 수정 전
+// function timer(cb) {
+//   setTimeout(() => {
+//     console.log(1)
+//     cb('1 is Done!')
+//   }, 2000)
+// }
+
+// timer(msg => {
+//   console.log(msg)
+//   console.log(2)
+// })
+
+// promise 함수 수정 후
+// function timer() {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       console.log(1)
+//       resolve('1 is Done!')
+//     }, 2000)
+//   })
+// }
+
+// timer()
+//   .then(msg => {
+//     console.log(msg)
+//     console.log(2)
+//     return timer()
+//   })
+//   .then(msg => {
+//     console.log(msg)
+//     console.log(2)
+//     return timer()
+//   })
+//   .then(msg => {
+//     console.log(msg)
+//     console.log(2)
+//   })
+
+// 이미지 렌더링 좀더 확장성 생각해서 수정
+function loadImage(src) {
+  return new Promise(resolve => {
     const imgEl = document.createElement('img')
-    imgEl.src = 'https://picsum.photos/3000/2000'
+    imgEl.src = src
     imgEl.addEventListener('load', () => {
-      document.body.append(imgEl)
-      callback()
+      resolve(imgEl)
     })
   })
 }
-renderImage()
-  .then(() => {
-    console.log('Done 1')
-    return renderImage()
+loadImage('https://picsum.photos/3000/2000')
+  .then((imgEl) => {
+    document.body.append(imgEl)
+    console.log('Done!')
   })
-  .then(() => {
-    console.log('Done 2')
-    return renderImage()
-  })
-  .then(() => {
-    console.log('Done 3')
-    return renderImage()
-  })
-  .then(() => {
-    console.log('Done 4')
+loadImage('https://picsum.photos/100/200')
+  .then((imgEl) => {
+    console.log(imgEl)
   })
